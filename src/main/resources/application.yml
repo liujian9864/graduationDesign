@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: frozenpearassistant
+  profiles:
+    active: dev
+  datasource:
+      driver_class_name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/frozenpearassistant?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+      max-active: 20
+      initial-size: 1
+      min-idle: 3
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      poolPreparedStatements: true
+  thymeleaf:
+    enabled: true  #开启thymeleaf视图解析
+    encoding: utf-8  #编码
+    prefix: classpath:/templates/  #前缀
+    cache: false  #是否使用缓存
+    mode: HTML  #严格的HTML语法模式
+    suffix: .html  #后缀名
+#  mvc:
+#    static-path-pattern: /static/**
+#  resources:
+#      static-locations: classpath:/static/
+server:
+  port: 9864
+#  servlet:
+#    context-path: /teachingevalutionsystem
+
+mybatis:
+  mapperLocations: classpath:com/**/mapper/*.xml
+#  type-aliases-package: com.**.entity
+

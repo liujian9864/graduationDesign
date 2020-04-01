@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>冻梨二货</title>
+	<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/font-awesome-4.7.0/css/font-awesome.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/bootstrap/js/cookie.js}"></script>
+</head>
+	<body>
+	<div style="height: 5px"></div>
+	<div class="title">
+		<span class="title-logo">冻梨二货</span>
+		<div class="second_title">
+			<div class="nav dropdown nav1">
+				<span style="width: 10px">|</span>
+				<a class="btn btn-link"  href="user_center.html" >用户中心</a>
+			</div>
+			<div class="nav nav1">
+				<a class="btn btn-link"  href="index" >首页</a>
+				<span style="width: 10px">|</span>
+				<a class="btn btn-link"  href="index.html" >求购商城</a>
+			</div>
+		</div>
+	</div>
+	<div style="height: 10px"></div>
+	<!--主体-->
+	<div class="container">
+		<div class="col-md-2">
+			<!--左侧导航开始-->
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<!--主选项：我的订单-->
+						<p class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">我的订单</a>
+						</p>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div><a href="orders.html">全部订单</a></div>
+							<div><a href="orders.html">待付款</a></div>
+							<div><a href="orders.html">待收货</a></div>
+							<div><a href="orders.html">待评价</a></div>
+							<div><a href="orders.html">退货退款</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<!--主选项：资料修改-->
+						<p class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">资料修改</a>
+						</p>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div><a href="user_center"><b>个人资料</b></a></div>
+							<div><a href="password">修改密码</a></div>
+							<div><a href="upload">上传头像</a></div>
+							<div><a href="address">收货管理</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--左侧导航结束-->
+		</div>
+		<div class="col-md-10	">
+			<div class="panel panel-default">
+				<ul class="nav nav-tabs">
+					<li><a href="user_center">个人资料</a></li>
+					<li><a href="password">修改密码</a></li>
+					<li class="active"><a href="#">上传头像</a></li>
+					<li><a href="address">收货管理</a></li>
+				</ul>
+				<div class="panel-body">
+					<!--上传头像表单开始-->
+					<form id="form-change-avatar" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-md-2 control-label">选择头像:</label>
+							<div class="col-md-5">
+								<img id="img-avatar" src="imgs/avatar/avatar.jpg" class="img-responsive" />
+							</div>
+							<div class="clearfix"></div>
+							<div class="col-md-offset-2 col-md-4">
+								<input name="file" type="file">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<input id="btn-change-avatar" type="button" class="btn btn-primary" value="上传" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--页脚开始-->
+	<footer>
+		<div class="text-center rights container">
+			<div class="col-md-offset-2 col-md-2">
+				<span class="fa fa-thumbs-o-up"></span>
+				<p>品质保障</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-address-card-o"></span>
+				<p>私人订制</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-graduation-cap"></span>
+				<p>学生特供</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-bitcoin"></span>
+				<p>专属特权</p>
+			</div>
+		</div>
+	</footer>
+	<div class="foot">
+		<div style="height: 183px">
+			<img src="imgs/foot.png">
+		</div>
+		<span class="foot-p">来冻梨二货，你的闲置能换钱！</span><br>
+		<span class="foot-s">全校最大最活跃的闲置物品交换平台</span>
+	</div>
+	<address>
+		Written by <a href="#">Liujian</a>.<br>
+		Visit us at:<br>
+		East China University<br>
+		tel：151×××××××49
+	</address>
+
+	<script src="js/upload.js"></script>
+	</body>
+
+</html>

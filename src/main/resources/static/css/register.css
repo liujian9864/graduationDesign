@@ -1,0 +1,156 @@
+/* 索引页大背景*/
+.mycontent {
+	background-image: url(/imgs/reg-bg.jpg);
+	width: 100%;
+	height: 561px;
+}
+/*索引页半透明层*/
+.inputDiv {
+	height: 371px;
+	width: 270px;
+	background-color: rgba(255, 255, 255, 0.7);
+	float: right;
+	margin: 100px 60px 0 0;
+	text-align: center;
+	color: cadetblue;
+	line-height: 40px;
+}
+/*索引页几个链接按钮*/
+.inputDiv a {
+	margin: 8px;
+	font-size: 16px;
+}
+/*按钮宽度	*/
+.inputDiv .btn {
+	width: 90%;
+}
+.regDiv{
+	height: 280px;
+	width: 500px;
+	background-color: rgba(255,255,255,0.85);
+	float: right;
+	margin: 130px 60px 0 0;
+	border-radius: 10px;
+	color: #666666;
+	padding: 8px;
+}
+
+
+.loginDiv {
+	height: 280px;
+	width: 500px;
+	background-color: rgba(255, 255, 255, 0.85);
+	float: right;
+	margin: 130px 60px 0 0;
+	border-radius: 10px;
+	color: #666666;
+	padding: 8px;
+}
+
+/*通用的去ul默认格式*/
+ul,li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body {
+	font-family: "微软雅黑", "黑体";
+}
+.txtred{
+	color: red;
+}
+.title-row-2 {
+	line-height: 1.2em;
+	height: 2.4em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.title-row-1 {
+	line-height: 1.2em;
+	height: 1.2em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.li-row-1 {
+	line-height: 1.2em;
+	height: 1.2em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.text-row-3 {
+	line-height: 1.2em;
+	height: 3.6em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+.text-row-2 {
+	line-height: 1.2em;
+	height: 2.4em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.text-row-1 {
+	line-height: 1.2em;
+	height: 1.2em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+
+/*图标加大 颜色*/
+.rights .fa {
+	font-size: 30px;
+	color: #667799;
+}
+/*图片小间距*/
+img {
+	margin: 1px;
+}
+/*超链接样式*/
+.callus a {
+	font-size: 12px;
+	text-decoration: none;
+	color: #666666;
+}
+/*底部填充高*/
+.bottom {
+	margin: 10px;
+}
+/*权益整行的颜色和填充*/
+.rights {
+	width: 100%;
+	padding: 50px;
+	background-color: #F2F2F2;
+}
+/*联系我们那一整行的填充*/
+.beforeBottom {
+	padding-top: 30px;
+}
+
+/*表格文字居中*/
+.orders-table {
+	text-align: center;
+}
+/*表头文字居中*/
+.orders-table th {
+	text-align: center;
+}
+/*数量数字居中*/
+.orders-table input {
+	text-align: center;
+}
+/*每行间隙*/
+.orders-table tbody tr {
+	border-top: 1px dashed #cccccc;
+}

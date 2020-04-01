@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>冻梨二货</title>
+	<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/font-awesome-4.7.0/css/font-awesome.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/bootstrap/js/cookie.js}"></script>
+</head>
+	<body>
+	<div style="height: 5px"></div>
+	<div class="title">
+		<span class="title-logo">冻梨二货</span>
+		<div class="second_title">
+			<div class="nav dropdown nav1">
+				<span style="width: 10px">|</span>
+				<a class="btn btn-link"  href="user_center.html" >用户中心</a>
+			</div>
+			<div class="nav nav1">
+				<a class="btn btn-link"  href="index" >首页</a>
+				<span style="width: 10px">|</span>
+				<a class="btn btn-link"  href="index.html" >求购商城</a>
+			</div>
+		</div>
+	</div>
+	<div style="height: 10px"></div>
+	<!--主体-->
+	<div class="container mycontent text-left">
+		<!--透明层 -->
+		<div class="loginDiv">
+			<p>用户登录</p>
+			<!--表单开始-->
+			<form action="index.html"  class="form-horizontal" role="form">
+				<!--用户名-->
+				<div class="form-group">
+					<label for="username" class="col-md-3 control-label">名字：</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" id="username"  placeholder="请输入用户名">
+					</div>
+				</div>
+				<!--密码-->
+				<div class="form-group">
+					<label for="password" class="col-md-3 control-label"> 密码：</label>
+					<div class="col-md-8">
+						<input type="password" class="form-control" id="password"  placeholder="请输入密码">
+					</div>
+				</div>
+				<!-- 记住我-->
+				<div class="form-group">
+					<div class="col-md-offset-3 col-md-6">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" id="auto">自动登录
+							</label>
+						</div>
+					</div>
+				</div>
+				<!--提交按钮-->
+				<div class="form-group">
+					<label class="col-md-3 control-label"></label>
+					<div class="col-md-8">
+						<input id="loginBtn" class="btn btn-primary" type="button" value="登录" />
+						<span class="pull-right"><small>还没有账号？</small><a href="register">注册</a></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--页脚开始-->
+	<footer>
+		<div class="text-center rights container">
+			<div class="col-md-offset-2 col-md-2">
+				<span class="fa fa-thumbs-o-up"></span>
+				<p>品质保障</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-address-card-o"></span>
+				<p>私人订制</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-graduation-cap"></span>
+				<p>学生特供</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-bitcoin"></span>
+				<p>专属特权</p>
+			</div>
+		</div>
+	</footer>
+	<div class="foot">
+		<div style="height: 183px">
+			<img src="imgs/foot.png">
+		</div>
+		<span class="foot-p">来冻梨二货，你的闲置能换钱！</span><br>
+		<span class="foot-s">全校最大最活跃的闲置物品交换平台</span>
+	</div>
+	<address>
+		Written by <a href="#">Liujian</a>.<br>
+		Visit us at:<br>
+		East China University<br>
+		tel：151×××××××49
+	</address>
+
+
+
+	<script src="js/login.js"></script>
+	</body>
+
+</html>
