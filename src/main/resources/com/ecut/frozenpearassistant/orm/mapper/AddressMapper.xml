@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecut.frozenpearassistant.orm.mapper.AddressMapper">
+
+	<sql id="includeColumns">
+		address_id as addressId,
+		user_id as userId,
+		name,
+		provinceCode,
+		provinceName,
+		cityCode,
+		cityName,
+		areaCode,
+		areaName,
+		zip,
+		address,
+		phone,
+		tel,
+		tag,
+		is_default as isDefault
+	</sql>
+
+	<!-- 插入收货地址数据 -->
+	<!-- Integer insert(Address address) -->
+	<insert id="insert" parameterType="com.ecut.frozenpearassistant.param.AddressParam">
+		INSERT INTO address (
+		address_id,
+		user_id,
+		name,
+		provinceCode,
+		provinceName,
+		cityCode,
+		cityName,
+		areaCode,
+		areaName,
+		zip,
+		address,
+		phone,
+		tel,
+		tag,
+		is_default
+		) VALUES (
+			#{addressId},
+			#{userId}, #{name},
+			#{provinceCode}, #{provinceName},
+			#{cityCode}, #{cityName},
+			#{areaCode}, #{areaName},
+			#{zip}, #{address},
+			#{phone}, #{tel},
+			#{tag}, #{isDefault}
+		)
+	</insert>
+	
+	<!-- 根据收货地址id删除数据 -->
+	<!-- Integer deleteByAid(Integer aid) -->
+	<delete id="deleteByAid" parameterType="String">
+		DELETE FROM 
+			address
+		WHERE 
+			address_id=#{addressId}
+	</delete>
+	
+	<!-- 将指定的收货地址设置为默认 -->
+	<!-- Integer updateDefault(
+			@Param("aid") Integer aid, 
+			@Param("modifiedUser") String modifiedUser, 
+			@Param("modifiedTime") Date modifiedTime) -->
+	<update id="updateDefault" parameterType="String">
+		UPDATE 
+			address
+		SET
+			is_default=1
+		WHERE
+			address_id=#{addressId}
+	</update>
+	
+	<!-- 将某用户的所有收货地址全部设置为非默认 -->
+	<!-- Integer updateNonDefault(Integer uid) -->
+	<update id="updateNonDefault" parameterType="String">
+		UPDATE 
+			address
+		SET
+			is_default=0
+		WHERE
+			user_id=#{userId}
+	</update>
+	
+	<!-- 统计某用户的收货地址数据的数量 -->
+	<!-- Integer countByUid(Integer uid) -->
+	<select id="countByUid" parameterType="String" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM
+			address
+		WHERE
+			user_id=#{userId}
+	</select>
+	
+	<!-- 查询某用户的收货地址列表 -->
+	<!-- List<Address> findByUid(Integer uid) -->
+	<select id="findByUid" parameterType="String" resultType="com.ecut.frozenpearassistant.orm.entity.AddressEntity">
+		SELECT
+			<include refid="includeColumns"></include>
+		FROM
+			address
+		WHERE 
+			user_id=#{userId}
+		ORDER BY
+			is_default DESC
+	</select>
+	
+	<!-- 根据收货地址id，查询收货地址详情 -->
+	<!-- Address findByAid(Integer aid) -->
+	<select id="findByAid" parameterType="String" resultType="com.ecut.frozenpearassistant.orm.entity.AddressEntity">
+		SELECT
+		<include refid="includeColumns"></include>
+		FROM
+			address
+		WHERE 
+			address_id=#{addressId}
+	</select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecut.frozenpearassistant.orm.mapper.DistrictMapper">
+
+	<!-- 根据省/市/区的代号查询详情 -->
+	<!-- District findByCode(String code) -->
+	<select id="findByCode" parameterType="String"
+		resultType="com.ecut.frozenpearassistant.orm.entity.District">
+		SELECT
+			*
+		FROM
+			dictionary
+		WHERE
+			code=#{code}
+	</select>
+
+	<!-- 获取全国所有省/某省所有市/某省所有区的列表 -->
+	<!-- List<District> findByParent(String parent) -->
+	<select id="findByParent" parameterType="String"
+		resultType="com.ecut.frozenpearassistant.orm.entity.District">
+		SELECT
+			*
+		FROM
+			dictionary
+		WHERE
+			parent=#{parent}
+		ORDER BY
+			code ASC
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
