@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecut.frozenpearassistant.orm.mapper.ProductMapper">
+    <sql id="includeColumns">
+        <trim suffixOverrides=",">
+			product_id as  productId,
+			userId as  userId,
+			product_type as  productType,
+			title,
+			sell_point as sellPoint,
+			image,
+			status,
+			message,
+			price,
+			postage
+		</trim>
+
+    </sql>
+
+
+</mapper>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>冻梨二货</title>
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/page.css}"/>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/bootstrap/js/cookie.js}"></script>
+</head>
+<body>
+    <div class="nav_head">
+        <a class="btn btn-link"  href="login" >登陆</a>
+        <a class="btn btn-link"  href="register" >注册</a>
+        <div class="nav dropdown nav1">
+            <span style="width: 10px">|</span>
+            <a class="btn btn-link"  href="user_center" >用户中心</a>
+        </div>
+        <div class="nav nav1">
+            <a class="btn btn-link"  href="index" >首页</a>
+            <span style="width: 10px">|</span>
+            <a class="btn btn-link"  href="buyindex" >求购商城</a>
+        </div>
+    </div>
+    <div class="title">
+        <span class="title-logo">冻梨二货</span>
+        <div class="second_title">
+            <div class="find">
+                <input type="text" class="form-control" id="search" >
+                <a type="button" class="btn btn-warning" id="search-button" href="after_search.html" >
+                    <span class="glyphicon glyphicon-search"></span>
+                </a>
+                <button type="button" class="btn btn-warning"><a href="release_goods.html">发布闲置</a></button>
+            </div>
+        </div>
+    </div>
+    <!-- 返回最上开始 -->
+    <div class="back_to_top">
+        <a href="#"><img src="imgs/index-backtop.png"></a>
+    </div>
+    <!-- 返回最上结束 -->
+    <div class="new_nav">
+        <div class="new_nav_in">
+            <img src="imgs/book.png"/>
+            <a class="btn btn-link" href="#f1">闲置书籍</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/numerical.png"/>
+            <a class="btn btn-link" href="#f2">数码电子</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/clothes.png"/>
+            <a class="btn btn-link" href="#f3">鞋服佩饰</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/daily.png"/>
+            <a class="btn btn-link" href="#f4">日用物品</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/vehicle.png"/>
+            <a class="btn btn-link" href="#f5">出行交通</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/other.png"/>
+            <a class="btn btn-link" href="#f6">其他闲置</a>
+        </div>
+    </div>
+    <div class="main_content">
+        <div class="second_content_right nav-1" id="f2">
+            <a class="btn btn-link more_goods"  href="#" >更多</a>
+            <img src="imgs/numerical.png">
+            <a href="#">数码电子</a>
+            <div class="third_content">
+                <div class="goods">
+                    <img src="imgs/numerical/1.png" >
+                </div>
+                <div class="describe">
+                    <img src="imgs/product/箭头.png" >
+                    <a>索尼FDR-AX60</a>
+                    <img src="imgs/product/金钱2.png" class="rmb">
+                    <span>15100</span>
+                    <p>
+                        中关村在线 济南行情）近日，
+                        索尼HXR-NX100摄像机在济南经销商山东影视器材广电商场促销
+                    </p>
+                </div>
+                <div class="goods">
+                    <img src="imgs/numerical/2.jpg" >
+                </div>
+                <div class="describe">
+                    <img src="imgs/product/箭头.png" >
+                    <a>JVC GZ-RY980</a>
+                    <img src="imgs/product/金钱2.png" class="rmb">
+                    <span>18200</span>
+                    <p>
+                        JVC GZ-RY980是一款具备五米防水、1.5米防摔、IPX5防尘以及-10°C防寒性能的四防高清摄像机。
+                        这款摄像机可以拍摄1080P的高清影像，拥有60倍动态变焦能力，
+                        在低照度下也能轻松拍摄，A.I.S增强稳定器提供防抖支持。
+                    </p>
+                </div>
+                <div class="goods">
+                    <img src="imgs/numerical/3.jpg" >
+                </div>
+                <div class="describe">
+                    <img src="imgs/product/箭头.png" >
+                    <a>GZ-RY775</a>
+                    <img src="imgs/product/金钱2.png" class="rmb">
+                    <span>25000</span>
+                    <p>
+                        四防一直是JVC旗下主力摄像机产品的一大特色，
+                        优异的防护性能使得JVC摄像机可以在各种拍摄环境下使用起来更加让人放心。
+                        而随着如今4KUHD规格的逐渐普及，JVC也应势推出了全新的4K四防摄像机GZ-RY775。
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div id="showAllBookFenyeDiv" style="margin-right:20px;display: none;">
+                    <ul id="showAllBookFenye" class="am-pagination am-fr">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- foot -->
+    <div class="foot">
+        <div style="height: 183px">
+            <img src="imgs/foot.png">
+        </div>
+        <span class="foot-p">来冻梨二货，你的闲置能换钱！</span><br>
+        <span class="foot-s">全校最大最活跃的闲置物品交换平台</span>
+    </div>
+    <address>
+        Written by <a href="#">Liujian</a>.<br>
+        Visit us at:<br>
+        East China University<br>
+        tel：151×××××××49
+    </address>
+
+    <script src="js/clothes.js"></script>
+</body>
+</html>
