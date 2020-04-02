@@ -38,7 +38,7 @@ public class UsersController extends BaseController{
         return new JsonResult<>(SUCCESS);
     }
 
-    @GetMapping("getUserById")
+    @GetMapping("/getUserById")
     public JsonResult<UserEntity> getByUid(HttpSession session) {
         // 从session中获取uid
         String userId = (String)session.getAttribute("userId");
@@ -48,7 +48,7 @@ public class UsersController extends BaseController{
         return new JsonResult<>(SUCCESS,data);
     }
 
-    @PostMapping("change_info")
+    @PostMapping("/change_info")
     public JsonResult<Void> changeInfo(@RequestBody UserParam user, HttpSession session) {
         // 从session中获取uid和username
         String userId = (String)session.getAttribute("userId");
@@ -59,7 +59,7 @@ public class UsersController extends BaseController{
         return new JsonResult<>(SUCCESS);
     }
 
-    @PostMapping("change_password")
+    @PostMapping("/change_password")
     public JsonResult<Void> changePassword(@RequestBody UserParam user, HttpSession session) {
         // 从session中获取uid和username
         String userId = (String)session.getAttribute("userId");
@@ -84,7 +84,7 @@ public class UsersController extends BaseController{
         AVATAR_CONTENT_TYPES.add("image/png");
     }
 
-    @PostMapping("change_avatar")
+    @PostMapping("/change_avatar")
     public JsonResult<String> changeAvatar(
             @RequestParam("file") MultipartFile file,
             HttpSession session) {

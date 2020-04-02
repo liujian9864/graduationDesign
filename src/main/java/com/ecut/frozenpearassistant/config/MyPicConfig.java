@@ -1,4 +1,4 @@
-package com.ecut.frozenpearassistant.cofig;
+package com.ecut.frozenpearassistant.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
