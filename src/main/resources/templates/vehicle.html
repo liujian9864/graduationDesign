@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>冻梨二货</title>
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/page.css}"/>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/bootstrap/js/cookie.js}"></script>
+</head>
+<body>
+    <div class="nav_head">
+        <a class="btn btn-link"  href="login" >登陆</a>
+        <a class="btn btn-link"  href="register" >注册</a>
+        <div class="nav dropdown nav1">
+            <span style="width: 10px">|</span>
+            <a class="btn btn-link"  href="user_center" >用户中心</a>
+        </div>
+        <div class="nav nav1">
+            <a class="btn btn-link"  href="index" >首页</a>
+            <span style="width: 10px">|</span>
+            <a class="btn btn-link"  href="buyindex" >求购商城</a>
+        </div>
+    </div>
+    <div class="title">
+        <span class="title-logo">冻梨二货</span>
+        <div class="second_title">
+            <div class="find">
+                <input type="text" class="form-control" id="search" >
+                <a type="button" class="btn btn-warning" id="search-button" href="after_search.html" >
+                    <span class="glyphicon glyphicon-search"></span>
+                </a>
+                <button type="button" class="btn btn-warning"><a href="release_goods.html">发布闲置</a></button>
+            </div>
+        </div>
+    </div>
+    <!-- 返回最上开始 -->
+    <div class="back_to_top">
+        <a href="#"><img src="imgs/index-backtop.png"></a>
+    </div>
+    <!-- 返回最上结束 -->
+    <div class="new_nav">
+        <div class="new_nav_in">
+            <img src="imgs/book.png"/>
+            <a class="btn btn-link" href="#f1">闲置书籍</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/numerical.png"/>
+            <a class="btn btn-link" href="#f2">数码电子</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/clothes.png"/>
+            <a class="btn btn-link" href="#f3">鞋服佩饰</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/daily.png"/>
+            <a class="btn btn-link" href="#f4">日用物品</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/vehicle.png"/>
+            <a class="btn btn-link" href="#f5">出行交通</a>
+        </div>
+        <div class="new_nav_in">
+            <img src="imgs/other.png"/>
+            <a class="btn btn-link" href="#f6">其他闲置</a>
+        </div>
+    </div>
+    <div class="main_content">
+        <div class="second_content_left nav-1" id="f5">
+            <img src="imgs/vehicle.png">
+            <a href="#">出行交通</a>
+            <a class="btn btn-link more_goods"  href="#" >更多</a>
+            <div class="third_content">
+                <div class="goods">
+                    <img src="imgs/vehicle/1.jpg" >
+                </div>
+                <div class="describe">
+                    <img src="imgs/product/箭头.png" >
+                    <a>永久山地车</a>
+                    <img src="imgs/product/金钱2.png" class="rmb">
+                    <span>2500</span>
+                    <p>如果说日常骑行公路车是一个温柔的孩子，
+                        那此款公路探险车，则是一个淘气冒险的少年，它给你带来的不仅仅是舒适的骑行体验，
+                        更是让你在骑行中尽情领略奇妙的大自然世界带给你的美妙骑行感觉！
+                    </p>
+                </div>
+                <div class="goods">
+                    <img src="imgs/vehicle/2.jpg" >
+                </div>
+                <div class="describe">
+                    <img src="imgs/product/箭头.png" >
+                    <a>桑浦山地车</a>
+                    <img src="imgs/product/金钱2.png" class="rmb">
+                    <span>1820</span>
+                    <p>
+                        魅惑的设计、创新的科技、完美的架构、盛名的威望、独一无二的拥有，
+                        飞奔骑闯天路、勇闯川藏、穿越山径、碾轧碎石、穿梭泥泞、飞奔柏油，
+                    </p>
+                </div>
+                <div class="goods">
+                    <img src="imgs/vehicle/3.jpg" >
+                </div>
+                <div class="describe">
+                    <img src="imgs/product/箭头.png" >
+                    <a>猛犸王山地车</a>
+                    <img src="imgs/product/金钱2.png" class="rmb">
+                    <span>850</span>
+                    <p>名字取自藏文，涂装设计，
+                        延续了骑闯天路限量版的涂装灵感西藏文化中“五彩经幡”的颜色，
+                        整体色调灵感源自西藏三大圣湖，纳木措、玛旁雍措、羊卓雍措的色彩，
+                        上管图案为串联起来的米拉山、
+                        折多山、东达山的等高线地形图，三座圣山与三片圣湖的交相辉映，
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- foot -->
+    <div class="foot">
+        <div style="height: 183px">
+            <img src="imgs/foot.png">
+        </div>
+        <span class="foot-p">来冻梨二货，你的闲置能换钱！</span><br>
+        <span class="foot-s">全校最大最活跃的闲置物品交换平台</span>
+    </div>
+    <address>
+        Written by <a href="#">Liujian</a>.<br>
+        Visit us at:<br>
+        East China University<br>
+        tel：151×××××××49
+    </address>
+
+    <script src="js/vehicle.js"></script>
+</body>
+</html>
