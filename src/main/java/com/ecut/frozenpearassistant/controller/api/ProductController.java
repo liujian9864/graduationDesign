@@ -1,10 +1,13 @@
 package com.ecut.frozenpearassistant.controller.api;
 
 import com.ecut.frozenpearassistant.controller.api.ex.*;
+import com.ecut.frozenpearassistant.orm.entity.PageMessage;
 import com.ecut.frozenpearassistant.orm.entity.PageProduct;
 import com.ecut.frozenpearassistant.orm.entity.ProductEntity;
+import com.ecut.frozenpearassistant.param.MessageParam;
 import com.ecut.frozenpearassistant.param.ProductParam;
 import com.ecut.frozenpearassistant.service.ProductService;
+import com.ecut.frozenpearassistant.service.ex.UserNotFoundException;
 import com.ecut.frozenpearassistant.util.JsonResult;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +34,43 @@ public class ProductController extends BaseController {
         return new JsonResult<>(SUCCESS,data);
     }
 
+    @GetMapping("showMessage")
+    public JsonResult<PageMessage> showMessage(MessageParam messageParam, HttpSession session){
+        String productId=(String)session.getAttribute("productId");
+        messageParam.setProductId(productId);
+        PageMessage data=productService.showMessage(messageParam);
+        return new JsonResult<>(SUCCESS,data);
+    }
+
+    @GetMapping("findByProductId")
+    public JsonResult<ProductEntity> findByProductId(HttpSession session){
+        String productId = (String)session.getAttribute("productId");
+        ProductEntity data=productService.findByProductId(productId);
+        return new JsonResult<>(SUCCESS,data);
+    }
+
     @PostMapping("/addnew")
     public JsonResult<Void> addNew(@RequestBody ProductParam productParam, HttpSession session){
         productParam.setProductId(UUID.randomUUID().toString());
         productParam.setStatus("1");
+        String userId=(String)session.getAttribute("userId");
         session.setAttribute("productId",productParam.getProductId());
         session.setAttribute("productType",productParam.getProductType());
+        productParam.setUserId(userId);
         productService.addNew(productParam);
+        return new JsonResult<>(SUCCESS);
+    }
+
+    @PostMapping("/addMessage")
+    public JsonResult<Void> addMessage(@RequestBody MessageParam messageParam, HttpSession session){
+        String productId=(String)session.getAttribute("productId");
+        String userId=(String)session.getAttribute("userId");
+        if(userId==null || "".equals(userId)){
+            throw new UserNotFoundException();
+        }
+        messageParam.setProductId(productId);
+        messageParam.setUserId(userId);
+        productService.addMessage(messageParam);
         return new JsonResult<>(SUCCESS);
     }
 

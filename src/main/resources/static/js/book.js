@@ -1,4 +1,5 @@
 $(function() {
+    showAvatar();
     showAllByPage(1,15)
     function showAllByPage(currentPage,currentRows) {
         $.ajax({
@@ -22,7 +23,7 @@ $(function() {
                 for(i=0;i<result.data.products.length;i++){
                     var tr="";
                     tr+="<div class='goods'><img src='"+result.data.products[i].image+"' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+result.data.products[i].title+"</a>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goods_details?productId="+result.data.products[i].productId+"'>"+result.data.products[i].title+"</a>";
                     tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+result.data.products[i].price+"</span>";
                     tr+="<p>" +result.data.products[i].message+ "</p></div>";
                     body+=tr;
@@ -59,8 +60,6 @@ $(function() {
                         $("#f5Content").html(body);
                     }
                 }
-                console.log(body);
-
                     var ul = "";
                     for(i=1;i<=totalPage;i++){
                         var li = "";
@@ -102,5 +101,25 @@ $(function() {
         var searchKey=$('#search').val();
         $.cookie("searchKey", searchKey, {"expires": 7});
         window.location.href = "/after_search";
+    })
+    function showAvatar(){
+        let avatar = $.cookie("avatar");
+        let userName = $.cookie("userName");
+        if(userName != null){
+            $("#userName").css("display","inline-block");
+            $(".avatar").css("display","inline-block");
+            $("#exit").css("display","inline-block");
+            $("#login").css("display","none");
+            $("#reg").css("display","none");
+            $("#exit").css("display","inline-block");
+
+            $("#userName").text(userName);
+            $("#avatar").attr("src", avatar);
+        }
+    }
+    $(document).on("click", "#exit", function () {
+        $.cookie("avatar",null);
+        $.cookie("userName",null);
+        window.location.href = "/login";
     })
 })

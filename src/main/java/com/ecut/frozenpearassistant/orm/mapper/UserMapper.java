@@ -3,12 +3,14 @@ package com.ecut.frozenpearassistant.orm.mapper;
 import com.ecut.frozenpearassistant.orm.entity.UserEntity;
 import com.ecut.frozenpearassistant.param.UserParam;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 
 /**
  * 处理用户数据的持久层接口
  */
 @Mapper
+@Repository
 public interface UserMapper {
 
 	/**

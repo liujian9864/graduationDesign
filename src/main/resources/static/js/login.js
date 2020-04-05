@@ -25,8 +25,8 @@ $(document).on("click", "#loginBtn", function () {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             if (result.state == 2000) {
-                $.cookie("avatar", result.data.avatar, {"expires": 7});
-                $.cookie("userName", result.data.userName, {"expires": 7});
+                $.cookie("avatar", result.data.avatar, {"expires": new Date(new Date().getTime() + 60 * 1000 * 5)});
+                $.cookie("userName", result.data.userName, {"expires": new Date(new Date().getTime() + 60 * 1000 * 5)});
                 window.location.href = "/index"
                 // let avatar = $.cookie("avatar");
                 // console.log(avatar);

@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/page.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/goods_details.css}"/>
     <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
     <script th:src="@{/bootstrap/js/cookie.js}"></script>
 </head>
@@ -31,10 +32,10 @@
         <div class="second_title">
             <div class="find">
                 <input type="text" class="form-control" id="search" >
-                <a type="button" class="btn btn-warning" id="search-button" >
+                <a type="button" class="btn btn-warning" id="search-button"  >
                     <span class="glyphicon glyphicon-search"></span>
                 </a>
-                <button type="button" class="btn btn-warning"><a href="release_goods.html">发布闲置</a></button>
+                <button type="button" class="btn btn-warning"><a href="release_goods">发布闲置</a></button>
             </div>
         </div>
     </div>
@@ -43,51 +44,44 @@
         <a href="#"><img src="imgs/index-backtop.png"></a>
     </div>
     <!-- 返回最上结束 -->
-    <div class="new_nav">
-        <div class="new_nav_in">
-            <img src="imgs/book.png"/>
-            <a class="btn btn-link" href="book">闲置书籍</a>
-        </div>
-        <div class="new_nav_in">
-            <img src="imgs/numerical.png"/>
-            <a class="btn btn-link" href="numerical">数码电子</a>
-        </div>
-        <div class="new_nav_in">
-            <img src="imgs/clothes.png"/>
-            <a class="btn btn-link" href="clothes">鞋服佩饰</a>
-        </div>
-        <div class="new_nav_in">
-            <img src="imgs/daily.png"/>
-            <a class="btn btn-link" href="daily">日用物品</a>
-        </div>
-        <div class="new_nav_in">
-            <img src="imgs/vehicle.png"/>
-            <a class="btn btn-link" href="vehicle">出行交通</a>
-        </div>
-        <div class="new_nav_in">
-            <img src="imgs/other.png"/>
-            <a class="btn btn-link" href="other">其他闲置</a>
-        </div>
-    </div>
     <div class="main_content">
-        <div class="second_content_left nav-1" id="f3">
-            <img src="imgs/clothes.png">
-            <a href="#">鞋服佩饰</a>
-            <div class="third_content" id="f1Content">
-            </div>
-            <div class="third_content" id="f2Content" style="display: none">
-            </div>
-            <div class="third_content" id="f3Content" style="display: none">
-            </div>
-            <div class="third_content" id="f4Content" style="display: none">
-            </div>
-            <div class="third_content" id="f5Content" style="display: none">
-            </div>
-            <div>
-                <div id="showAllBookFenyeDiv" style="margin-right:20px">
-                    <ul id="showAllBookFenye" class="am-pagination am-fr">
-                    </ul>
+        <div class="second_content_left second_content_center nav-1" id="f1">
+            <img src="imgs/other.png">
+            <a href="#">商品详情</a>
+            <div class="attribute third_content">
+                <div class="col-md-5" >
+                    <img src="" class="img-rounded" id="img_product" >
                 </div>
+                <div class="col-md-7" id="img_attr">
+                    <p>商品名称：<span id="title"></span></p>
+                    <p>商品价格：<span id="price"></span></p>
+                    <p>商品类型：<span id="productType"></span></p>
+                    <span class="p1"><button type="button" id="phone" class="btn btn-lg btn-danger" data-toggle="popover" title="用户电话号码" data-content="卖家没有留联系方式哦">获取用户联系方式</button></span>
+                    <span class="p1"><button type="button" id="buy" class="btn btn-lg btn-danger">点击立即购买</button></span>
+                </div>
+            </div>
+            <a href="#">详情描述</a>
+            <div class="attribute1 third_content">
+                <p id="message"></p>
+            </div>
+            <a id="me1">商品留言</a>
+            <div class="attribute2 third_content" id="fContent">
+            </div>
+
+            <a href="#">留言:</a>
+            <div class="attribute3 third_content">
+                <div class="form-group">
+                    <label class="col-md-2 control-label label1"><span class="txtred">*</span>留言：</label>
+                    <div class="col-md-10">
+                        <textarea id="messages" class="form-control" rows="5" placeholder="输入留言"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button type="button" id="addMessage" class="btn btn-lg btn-danger" style="width: 100px;height: 40px;text-align: center;margin-top: 20px;float: right;margin-right: 60px">留言</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -105,7 +99,11 @@
         East China University<br>
         tel：151×××××××49
     </address>
-
-    <script src="js/daily.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+    <script src="js/goods_details.js"></script>
 </body>
 </html>

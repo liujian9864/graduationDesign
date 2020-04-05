@@ -35,6 +35,8 @@ public class LoginInterceptorConfigurer
 		excludeList.add("/other");
 		excludeList.add("/product");
 		excludeList.add("/after_search");
+		excludeList.add("/goods_details");
+		excludeList.add("/goods_details/**");
 
 		excludeList.add("/bootstrap/**");
 		excludeList.add("/imgs/**");

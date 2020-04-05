@@ -16,7 +16,7 @@ $(function() {
                         tr+="</div><div style='height: 10px'></div><div class='third_content'>";
                     }
                     tr+="<div class='goods'><img src='imgs/book/"+1+".jpg' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details.html'>"+特别的猫+"</a>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+特别的猫+"</a>";
                     tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+25+"</span>";
                     tr+="<p>" +"2007年诺贝尔文学奖得主多丽丝·莱辛一部非虚构类代表作《特别的猫》中文版, 多丽丝·莱辛是个爱猫成痴的作家，她在《特别的猫》里讲述了人与猫之间的动人故事, 细数曾经让她欢欣也让她忧愁的猫。在她笔下，猫的世界精彩纷呈。故事从莱辛在非洲的童年开始。娇美的公主灰咪咪和低调的黑猫咪因为争宠上演了一出出情景剧；同为猫妈妈，育儿之道却大相径庭，令观者莞尔；"+ "</p></div>";
                     body+=tr;
@@ -78,7 +78,7 @@ $(function() {
                     //     tr+="</div><div style='height: 10px'></div><div class='third_content'>";
                     // }
                     tr+="<div class='goods'><img src='"+result.data.products[i].image+"' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+result.data.products[i].title+"</a>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goods_details?productId="+result.data.products[i].productId+"'>"+result.data.products[i].title+"</a>";
                     tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+result.data.products[i].price+"</span>";
                     tr+="<p>" +result.data.products[i].message+ "</p></div>";
                     f1body+=tr;
@@ -101,7 +101,7 @@ $(function() {
                     //     tr+="</div><div style='height: 10px'></div><div class='third_content'>";
                     // }
                     tr+="<div class='goods'><img src='"+result.data.products[i].image+"' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+result.data.products[i].title+"</a>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goods_details?productId="+result.data.products[i].productId+"'>"+result.data.products[i].title+"</a>";
                     tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+result.data.products[i].price+"</span>";
                     tr+="<p>" +result.data.products[i].message+ "</p></div>";
                     f2body+=tr;
@@ -124,7 +124,7 @@ $(function() {
                         tr+="</div><div style='height: 10px'></div><div class='third_content'>";
                     }
                     tr+="<div class='goods'><img src='"+result.data.products[i].image+"' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+result.data.products[i].title+"</a>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goods_details?productId="+result.data.products[i].productId+"'>"+result.data.products[i].title+"</a>";
                     tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+result.data.products[i].price+"</span>";
                     tr+="<p>" +result.data.products[i].message+ "</p></div>";
                     f3body+=tr;
@@ -147,7 +147,7 @@ $(function() {
                         tr+="</div><div style='height: 10px'></div><div class='third_content'>";
                     }
                     tr+="<div class='goods'><img src='"+result.data.products[i].image+"' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+result.data.products[i].title+"</a>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goods_details?productId="+result.data.products[i].productId+"'>"+result.data.products[i].title+"</a>";
                     tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+result.data.products[i].price+"</span>";
                     tr+="<p>" +result.data.products[i].message+ "</p></div>";
                     f4body+=tr;
@@ -170,7 +170,7 @@ $(function() {
                         tr+="</div><div style='height: 10px'></div><div class='third_content'>";
                     }
                     tr+="<div class='goods'><img src='"+result.data.products[i].image+"' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+result.data.products[i].title+"</a>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goods_details?productId="+result.data.products[i].productId+"'>"+result.data.products[i].title+"</a>";
                     tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+result.data.products[i].price+"</span>";
                     tr+="<p>" +result.data.products[i].message+ "</p></div>";
                     f5body+=tr;
@@ -193,7 +193,7 @@ $(function() {
                         tr+="</div><div style='height: 10px'></div><div class='third_content'>";
                     }
                     tr+="<div class='goods'><img src='"+result.data.products[i].image+"' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+result.data.products[i].title+"</a>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goods_details?productId="+result.data.products[i].productId+"'>"+result.data.products[i].title+"</a>";
                     tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+result.data.products[i].price+"</span>";
                     tr+="</div>";
                     f6body+=tr;
@@ -204,6 +204,12 @@ $(function() {
         })
 
     }
+
+    $(document).on("click", "#search-button", function () {
+        var searchKey=$('#search').val();
+        $.cookie("searchKey", searchKey, {"expires": 7});
+        window.location.href = "/after_search";
+    })
     function showAvatar(){
         let avatar = $.cookie("avatar");
         let userName = $.cookie("userName");
@@ -219,9 +225,9 @@ $(function() {
             $("#avatar").attr("src", avatar);
         }
     }
-    $(document).on("click", "#search-button", function () {
-        var searchKey=$('#search').val();
-        $.cookie("searchKey", searchKey, {"expires": 7});
-        window.location.href = "/after_search";
+    $(document).on("click", "#exit", function () {
+        $.cookie("avatar",null);
+        $.cookie("userName",null);
+        window.location.href = "/login";
     })
 });

@@ -69,6 +69,9 @@ public abstract class BaseController {
 		} else if (ex instanceof FileIOException) {
 			// 6004-上传文件文件时出现读写错误
 			jsonResult.setState(6004);
+		} else if (ex instanceof FileIOException) {
+			// 6004-上传文件文件时出现读写错误
+			jsonResult.setState(6004);
 		}
 
 		return jsonResult;

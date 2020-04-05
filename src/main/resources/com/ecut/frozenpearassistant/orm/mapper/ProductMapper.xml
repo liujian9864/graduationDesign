@@ -51,7 +51,7 @@
 		select
 		<include refid="includeColumns"></include>
 		from products
-		where product_id=#{productId}
+		where  product_id=#{productId}
 	</select>
 
 	<select id="queryByPage" parameterType="com.ecut.frozenpearassistant.param.Page"

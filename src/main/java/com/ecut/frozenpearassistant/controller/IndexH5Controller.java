@@ -2,6 +2,10 @@ package com.ecut.frozenpearassistant.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexH5Controller {
@@ -72,5 +76,10 @@ public class IndexH5Controller {
     @GetMapping("after_search")
     public String afterSearch(){
         return "after_search";
+    }
+    @GetMapping("goods_details")
+    public String goodsDetail(@RequestParam(value="productId") String productId,HttpSession session){
+        session.setAttribute("productId",productId);
+        return "goods_details";
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecut.frozenpearassistant.orm.mapper.MessageMapper">
+    <sql id="includeColumns">
+        <trim suffixOverrides=",">
+        	message_id as messageId,
+			product_id as  productId,
+			message.user_id as  userId,
+			user_name as userName,
+			message,
+			date
+		</trim>
+
+    </sql>
+
+	<insert id="insert" parameterType="com.ecut.frozenpearassistant.param.MessageParam">
+		insert into message(
+		message_id,
+		product_id,
+		user_id,
+		message,
+		date
+		) values (
+		#{messageId},
+		#{productId},
+		#{userId},
+		#{message},
+		#{date}
+		)
+	</insert>
+
+	<select id="queryByPage" parameterType="com.ecut.frozenpearassistant.param.Page"
+			resultType="com.ecut.frozenpearassistant.orm.entity.MessageEntity">
+		select
+		<include refid="includeColumns"></include>
+		from message,users
+		where
+		users.user_id=message.user_id
+		and   product_id=#{searchKey}
+		limit ${(currentPage-1)*pageSize},${pageSize}
+	</select>
+
+	<select id="queryAllCount" parameterType="com.ecut.frozenpearassistant.param.Page"
+			resultType="Integer">
+		select
+		count(*)
+		from message
+		where
+		product_id=#{searchKey}
+	</select>
+
+
+</mapper>
