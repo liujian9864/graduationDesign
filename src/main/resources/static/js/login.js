@@ -25,10 +25,11 @@ $(document).on("click", "#loginBtn", function () {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             if (result.state == 2000) {
-                window.location.href = "/index"
                 $.cookie("avatar", result.data.avatar, {"expires": 7});
-                let avatar = $.cookie("avatar");
-                console.log(avatar);
+                $.cookie("userName", result.data.userName, {"expires": 7});
+                window.location.href = "/index"
+                // let avatar = $.cookie("avatar");
+                // console.log(avatar);
             }else if (result.state == 4001) {
                 alert("登录失败！" + result.message + "！");
             } else if (result.state == 4002) {

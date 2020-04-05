@@ -20,6 +20,7 @@ $(function(){
                 }else {
                     alert("获取用户信息失败！" + result.message + "！");
                     //应该跳转到服务器端用于退出登录的URL
+                    location.href = "login";
                 }
             },
             "error":function() {

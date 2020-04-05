@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>冻梨二货</title>
     <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/page.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/page.css}"/>
     <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
     <script th:src="@{/bootstrap/js/cookie.js}"></script>
 </head>
@@ -28,7 +28,7 @@
         <div class="second_title">
             <div class="find">
                 <input type="text" class="form-control" id="search" >
-                <a type="button" class="btn btn-warning" id="search-button" href="after_search.html" >
+                <a type="button" class="btn btn-warning" id="search-button"  >
                     <span class="glyphicon glyphicon-search"></span>
                 </a>
                 <button type="button" class="btn btn-warning"><a href="release_goods">发布闲置</a></button>
@@ -43,87 +43,45 @@
     <div class="new_nav">
         <div class="new_nav_in">
             <img src="imgs/book.png"/>
-            <a class="btn btn-link" href="#f1">闲置书籍</a>
+            <a class="btn btn-link" href="book">闲置书籍</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/numerical.png"/>
-            <a class="btn btn-link" href="#f2">数码电子</a>
+            <a class="btn btn-link" href="numerical">数码电子</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/clothes.png"/>
-            <a class="btn btn-link" href="#f3">鞋服佩饰</a>
+            <a class="btn btn-link" href="clothes">鞋服佩饰</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/daily.png"/>
-            <a class="btn btn-link" href="#f4">日用物品</a>
+            <a class="btn btn-link" href="daily">日用物品</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/vehicle.png"/>
-            <a class="btn btn-link" href="#f5">出行交通</a>
+            <a class="btn btn-link" href="vehicle">出行交通</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/other.png"/>
-            <a class="btn btn-link" href="#f6">其他闲置</a>
+            <a class="btn btn-link" href="other">其他闲置</a>
         </div>
     </div>
     <div class="main_content">
         <div class="second_content_left nav-1" id="f1">
             <img src="imgs/book.png">
             <a href="#">闲置书籍</a>
-            <a class="btn btn-link more_goods"  href="#" >更多</a>
-            <div class="third_content">
-                <div class="goods">
-                    <img src="imgs/book/1.jpg" >
-                </div>
-                <div class="describe">
-                    <img src="imgs/product/箭头.png" >
-                    <a href="goos_details.html">特别的猫</a>
-                    <img src="imgs/product/金钱2.png" class="rmb">
-                    <span>25</span>
-                    <p>
-                        2007年诺贝尔文学奖得主多丽丝·莱辛一部非虚构类代表作《特别的猫》中文版，
-                        多丽丝·莱辛是个爱猫成痴的作家，她在《特别的猫》里讲述了人与猫之间的动人故事，
-                        细数曾经让她欢欣也让她忧愁的猫。在她笔下，猫的世界精彩纷呈。故事从莱辛在非洲的童年开始。
-                        娇美的公主灰咪咪和低调的黑猫咪因为争宠上演了一出出情景剧；
-                        同为猫妈妈，育儿之道却大相径庭，令观者莞尔；
-                    </p>
-                </div>
-                <div class="goods">
-                    <img src="imgs/book/2.jpg" >
-                </div>
-                <div class="describe">
-                    <img src="imgs/product/箭头.png" >
-                    <a>活着，为了什么</a>
-                    <img src="imgs/product/金钱2.png" class="rmb">
-                    <span>48</span>
-                    <p>
-                        在2004年法国举行的最受喜爱女性评选活动中，出人意料，法国人心中最受喜爱的女性，既不是美丽的苏菲·玛索，也不是法国宝贝朱丽叶·比诺什，而是已经95岁高龄的以马内利修女。
-                        以马内利修女(Soeur Emmanuelle)原名玛德莲·桑刚，1908年出生在比利时首都布鲁塞尔，1928年正式宣誓成为修女。正如以马内利的名字一样，
-                        以马内利修女一生践行着“神与我们同在”的上帝的旨意，几乎将毕生精力都献给了穷苦人士。
-                    </p>
-                </div>
-                <div class="goods">
-                    <img src="imgs/book/3.jpg" >
-                </div>
-                <div class="describe">
-                    <img src="imgs/product/箭头.png" >
-                    <a>追风筝的人</a>
-                    <img src="imgs/product/金钱2.png" class="rmb">
-                    <span>20</span>
-                    <p>
-                        小说以第一人称的角度讲述了阿米尔的故事。
-                        阿米尔生于1963年喀布尔的一个富人社区中的一个富裕家庭。
-                        其父亲“爸爸”是普什图人，一名法官的儿子，成功的地毯商人。
-                        阿米尔家的仆人阿里的儿子哈桑则出身哈扎拉人。
-                        阿米尔和哈桑是好玩伴，哈桑是一个特别忠实，正直，一心只为阿米尔少爷着想的人，
-                        两个人经常一起玩耍、游戏。阿米尔是出色的“风筝斗士”，
-                        即善于用自己的风筝切断别人的风筝的线；哈桑也是杰出的“风筝追逐者”，
-                        因为阿富汗斯坦的传统是线被切断而落下的风筝归追到它的人所有。
-                    </p>
-                </div>
+            <div class="third_content" id="f1Content">
+            </div>
+            <div class="third_content" id="f2Content" style="display: none">
+            </div>
+            <div class="third_content" id="f3Content" style="display: none">
+            </div>
+            <div class="third_content" id="f4Content" style="display: none">
+            </div>
+            <div class="third_content" id="f5Content" style="display: none">
             </div>
             <div>
-                <div id="showAllBookFenyeDiv" style="margin-right:20px;display: none;">
+                <div id="showAllBookFenyeDiv" style="margin-right:20px;">
                     <ul id="showAllBookFenye" class="am-pagination am-fr">
                     </ul>
                 </div>

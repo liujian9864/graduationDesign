@@ -41,8 +41,36 @@ public class IndexH5Controller {
     public String upload(){
         return "upload";
     }
-//    @GetMapping("user_center")
-//    public String userCenter(){
-//        return "user_center";
-//    }
+    @GetMapping("release_goods")
+    public String releaseGoods(){
+        return "release_goods";
+    }
+    @GetMapping("book")
+    public String book(){
+        return "book";
+    }
+    @GetMapping("numerical")
+    public String numerical(){
+        return "numerical";
+    }
+    @GetMapping("clothes")
+    public String clothes(){
+        return "clothes";
+    }
+    @GetMapping("daily")
+    public String daily(){
+        return "daily";
+    }
+    @GetMapping("vehicle")
+    public String vehicle(){
+        return "vehicle";
+    }
+    @GetMapping("other")
+    public String other(){
+        return "other";
+    }
+    @GetMapping("after_search")
+    public String afterSearch(){
+        return "after_search";
+    }
 }

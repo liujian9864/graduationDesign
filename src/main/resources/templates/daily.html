@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>冻梨二货</title>
     <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/page.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/page.css}"/>
     <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
     <script th:src="@{/bootstrap/js/cookie.js}"></script>
 </head>
@@ -21,8 +21,6 @@
         </div>
         <div class="nav nav1">
             <a class="btn btn-link"  href="index" >首页</a>
-            <span style="width: 10px">|</span>
-            <a class="btn btn-link"  href="buyindex" >求购商城</a>
         </div>
     </div>
     <div class="title">
@@ -30,7 +28,7 @@
         <div class="second_title">
             <div class="find">
                 <input type="text" class="form-control" id="search" >
-                <a type="button" class="btn btn-warning" id="search-button" href="after_search.html" >
+                <a type="button" class="btn btn-warning" id="search-button" >
                     <span class="glyphicon glyphicon-search"></span>
                 </a>
                 <button type="button" class="btn btn-warning"><a href="release_goods.html">发布闲置</a></button>
@@ -45,75 +43,47 @@
     <div class="new_nav">
         <div class="new_nav_in">
             <img src="imgs/book.png"/>
-            <a class="btn btn-link" href="#f1">闲置书籍</a>
+            <a class="btn btn-link" href="book">闲置书籍</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/numerical.png"/>
-            <a class="btn btn-link" href="#f2">数码电子</a>
+            <a class="btn btn-link" href="numerical">数码电子</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/clothes.png"/>
-            <a class="btn btn-link" href="#f3">鞋服佩饰</a>
+            <a class="btn btn-link" href="clothes">鞋服佩饰</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/daily.png"/>
-            <a class="btn btn-link" href="#f4">日用物品</a>
+            <a class="btn btn-link" href="daily">日用物品</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/vehicle.png"/>
-            <a class="btn btn-link" href="#f5">出行交通</a>
+            <a class="btn btn-link" href="vehicle">出行交通</a>
         </div>
         <div class="new_nav_in">
             <img src="imgs/other.png"/>
-            <a class="btn btn-link" href="#f6">其他闲置</a>
+            <a class="btn btn-link" href="other">其他闲置</a>
         </div>
     </div>
     <div class="main_content">
         <div class="second_content_left nav-1" id="f3">
             <img src="imgs/clothes.png">
             <a href="#">鞋服佩饰</a>
-            <a class="btn btn-link more_goods"  href="#.html" >更多</a>
-            <div class="third_content">
-                <div class="goods">
-                    <img src="imgs/clothes/1.jpg" >
-                </div>
-                <div class="describe">
-                    <img src="imgs/product/箭头.png" >
-                    <a>hefanxi</a>
-                    <img src="imgs/product/金钱2.png" class="rmb">
-                    <span>2500</span>
-                    <p>
-                        全蕾丝，有内衬，这个裙子在一家精品店意外发现的，真的是超华丽超美，
-                        版型也很好，袖口丝带小心机可以绑成一个小蝴蝶结，细节处见精致。
-                        不是超级软的那种蕾丝，这个比较有质感，这样的蕾丝比较饱满，可以保证版型。
-                        颜色也很少见，我个人定义为粉杏色，就是很春夏的颜色没错了。
-                    </p>
-                </div>
-                <div class="goods">
-                    <img src="imgs/clothes/2.jpg" >
-                </div>
-                <div class="describe">
-                    <img src="imgs/product/箭头.png" >
-                    <a>NEWFOUNDN</a>
-                    <img src="imgs/product/金钱2.png" class="rmb">
-                    <span>1800</span>
-                    <p>
-                        做内搭在风衣里面或者是单穿都可以，可以很甜美，也可以很女人。
-                        蕾丝裙，女人衣柜必备。
-                    </p>
-                </div>
-                <div class="goods">
-                    <img src="imgs/clothes/3.jpg" >
-                </div>
-                <div class="describe">
-                    <img src="imgs/product/箭头.png" >
-                    <a>ONE ONLY</a>
-                    <img src="imgs/product/金钱2.png" class="rmb">
-                    <span>1500</span>
-                    <p>
-                        春装款。俏皮刺绣圆领羊羔毛
-                        不是超级软的那种蕾丝，这个比较有质感，这样的蕾丝比较饱满，可以保证版型。
-                    </p>
+            <div class="third_content" id="f1Content">
+            </div>
+            <div class="third_content" id="f2Content" style="display: none">
+            </div>
+            <div class="third_content" id="f3Content" style="display: none">
+            </div>
+            <div class="third_content" id="f4Content" style="display: none">
+            </div>
+            <div class="third_content" id="f5Content" style="display: none">
+            </div>
+            <div>
+                <div id="showAllBookFenyeDiv" style="margin-right:20px">
+                    <ul id="showAllBookFenye" class="am-pagination am-fr">
+                    </ul>
                 </div>
             </div>
         </div>

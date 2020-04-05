@@ -4,7 +4,7 @@
     <sql id="includeColumns">
         <trim suffixOverrides=",">
 			product_id as  productId,
-			userId as  userId,
+			user_id as  userId,
 			product_type as  productType,
 			title,
 			sell_point as sellPoint,
@@ -16,6 +16,80 @@
 		</trim>
 
     </sql>
+
+	<insert id="insert" parameterType="com.ecut.frozenpearassistant.param.ProductParam">
+		insert into products(
+		product_id,
+		user_id,
+		product_type,
+		title,
+		price,
+		message,
+		status
+		) values (
+		#{productId},
+		#{userId},
+		#{productType},
+		#{title},
+		#{price},
+		#{message},
+		#{status}
+		)
+	</insert>
+
+	<update id="updateImage" parameterType="com.ecut.frozenpearassistant.param.ProductParam">
+		update
+		products
+		set
+		image=#{image}
+		where
+		product_id=#{productId}
+	</update>
+
+	<select id="findByProductId" parameterType="String"
+			resultType="com.ecut.frozenpearassistant.orm.entity.ProductEntity">
+		select
+		<include refid="includeColumns"></include>
+		from products
+		where product_id=#{productId}
+	</select>
+
+	<select id="queryByPage" parameterType="com.ecut.frozenpearassistant.param.Page"
+			resultType="com.ecut.frozenpearassistant.orm.entity.ProductEntity">
+		select
+		<include refid="includeColumns"></include>
+		from products
+		where
+		1=1
+		<if test='searchKey!=null and searchKey!=""'>
+			and title like '%${searchKey}%'
+		</if>
+		<if test='searchKey!=null and searchKey!=""'>
+			or message like '%${searchKey}%'
+		</if>
+		<if test='productType!=null and productType!=""'>
+			and product_type = #{productType}
+		</if>
+		limit ${(currentPage-1)*pageSize},${pageSize}
+	</select>
+
+	<select id="queryAllCount" parameterType="com.ecut.frozenpearassistant.param.Page"
+			resultType="Integer">
+		select
+		count(*)
+		from products
+		where
+		1=1
+		<if test='searchKey!=null and searchKey!=""'>
+			and title like '%${searchKey}%'
+		</if>
+		<if test='searchKey!=null and searchKey!=""'>
+			or message like '%${searchKey}%'
+		</if>
+		<if test='productType!=null and productType!=""'>
+			and product_type = #{productType}
+		</if>
+	</select>
 
 
 </mapper>

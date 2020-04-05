@@ -1,31 +1,66 @@
 $(function() {
     showAllByPage(1,15)
     function showAllByPage(currentPage,currentRows) {
-        var tabId='book';
         $.ajax({
-            type: "post",
-            url: "/product/findByPage",
-            data:tabId,
-            contentType: "application/json; charset=utf-8",
+            type: "get",
+            url: "/products/findByPage",
+            dataType: "json",
+            data:{productType:'book',page:currentPage,rows:currentRows},
             success:function (result){
+                $("#f1Content").html("");
+                $("#f2Content").html("");
+                $("#f3Content").html("");
+                $("#f4Content").html("");
+                $("#f5Content").html("");
+                $("#f2Content").css("display","none");
+                $("#f3Content").css("display","none");
+                $("#f4Content").css("display","none");
+                $("#f5Content").css("display","none");
                 var totalPage = result.data.totalPage;
                 var currentPage = result.data.currentPage;
                 var body="";
-                for(i=0;i<result.data.length;i++){
+                for(i=0;i<result.data.products.length;i++){
                     var tr="";
-                    if(i!=0 && i%3==0){
-                        tr+="</div><div style='height: 10px'></div><div class='third_content'>";
-                    }
-                    tr+="<div class='goods'><img src='imgs/book/"+1+".jpg' ></div>";
-                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details.html'>"+特别的猫+"</a>";
-                    tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+25+"</span>";
-                    tr+="<p>" +"2007年诺贝尔文学奖得主多丽丝·莱辛一部非虚构类代表作《特别的猫》中文版, 多丽丝·莱辛是个爱猫成痴的作家，她在《特别的猫》里讲述了人与猫之间的动人故事, 细数曾经让她欢欣也让她忧愁的猫。在她笔下，猫的世界精彩纷呈。故事从莱辛在非洲的童年开始。娇美的公主灰咪咪和低调的黑猫咪因为争宠上演了一出出情景剧；同为猫妈妈，育儿之道却大相径庭，令观者莞尔；"+ "</p></div>";
+                    tr+="<div class='goods'><img src='"+result.data.products[i].image+"' ></div>";
+                    tr+="<div class='describe'><img src='imgs/product/箭头.png' ><a href='goos_details'>"+result.data.products[i].title+"</a>";
+                    tr+="<img src='imgs/product/金钱2.png' class='rmb'><span>"+result.data.products[i].price+"</span>";
+                    tr+="<p>" +result.data.products[i].message+ "</p></div>";
                     body+=tr;
+                    if(result.data.products.length<3 && i==result.data.products.length-1 || i==2){
+                        $("#f1Content").html(body);
+                        $(".second_content_left").css("height","430");
+                        tr="";
+                        body="";
+                    }
+                    else if(result.data.products.length<6 && i==result.data.products.length-1 || i==5){
+                        $(".second_content_left").css("height","820");
+                        $("#f2Content").css("display","block");
+                        $("#f2Content").html(body);
+                        tr="";
+                        body="";
+                    }
+                    else if(result.data.products.length<9 && i==result.data.products.length-1 || i==8){
+                        $(".second_content_left").css("height","1110");
+                        $("#f3Content").css("display","block");
+                        $("#f3Content").html(body);
+                        tr="";
+                        body="";
+                    }
+                    else if(result.data.products.length<12 && i==result.data.products.length-1 || i==11){
+                        $(".second_content_left").css("height","1400");
+                        $("#f4Content").css("display","block");
+                        $("#f4Content").html(body);
+                        tr="";
+                        body="";
+                    }
+                    else if(result.data.products.length<15 && i==result.data.products.length-1 || i==14){
+                        $(".second_content_left").css("height","1690");
+                        $("#f5Content").css("display","block");
+                        $("#f5Content").html(body);
+                    }
                 }
-                $("#f1Content").html(body);
+                console.log(body);
 
-                if (result.data.length>=3){
-                    $("#showAllBookFenyeDiv").style.display='block';
                     var ul = "";
                     for(i=1;i<=totalPage;i++){
                         var li = "";
@@ -45,22 +80,27 @@ $(function() {
                             if(currentPage == 1){
                                 alert("已经第一页了");
                             }else{
-                                showAllByPage(currentPage-1);
+                                showAllByPage(currentPage-1,15);
                             }
                         }else if(id == "nextPage1"){
                             if(currentPage == totalPage){
                                 alert("已经是最后一页了");
                             }else{
-                                showAllByPage(currentPage+1);
+                                showAllByPage(currentPage+1,15);
                             }
                         }else if(id == "numberPage1"){
-                            showAllByPage($(this).text());
+                            showAllByPage($(this).text(),15);
                         }
                     })
                     var number = currentPage-1;
                     $(".fenli1:eq("+number+")").attr("class","am-active");
-                }
+
             }
         })
     }
+    $(document).on("click", "#search-button", function () {
+        var searchKey=$('#search').val();
+        $.cookie("searchKey", searchKey, {"expires": 7});
+        window.location.href = "/after_search";
+    })
 })

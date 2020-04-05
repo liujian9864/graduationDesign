@@ -22,8 +22,6 @@
 			</div>
 			<div class="nav nav1">
 				<a class="btn btn-link"  href="index" >首页</a>
-				<span style="width: 10px">|</span>
-				<a class="btn btn-link"  href="index.html" >求购商城</a>
 			</div>
 		</div>
 	</div>
@@ -59,11 +57,11 @@
 					</div>
 					<div id="collapseTwo" class="panel-collapse collapse in">
 						<div class="panel-body">
-							<div><a href="user_center"><b>个人资料</b></a></div>
+							<div><a href="user_center">个人资料</a></div>
 							<div><a href="password">修改密码</a></div>
 							<div><a href="upload">上传头像</a></div>
 							<div><a href="address">收货管理</a></div>
-							<div><a href="release_goods">商品发布</a></div>
+							<div><a href="release_goods"><b>商品发布</b></a></div>
 						</div>
 					</div>
 				</div>
@@ -76,62 +74,63 @@
 					<li><a href="user_center">个人资料</a></li>
 					<li><a href="password">修改密码</a></li>
 					<li><a href="upload">上传头像</a></li>
-					<li class="active"><a href="#">收货管理</a></li>
-					<li><a href="release_goods">商品发布</a></li>
+					<li><a href="address">收货管理</a></li>
+					<li class="active"><a href="#">商品发布</a></li>
 				</ul>
 				<div class="panel-body">
-					<!--地址显示-->
-					<table class="table table-striped">
-						<caption>收货地址列表</caption>
-						<thead>
-						<tr>
-							<th>地址类型</th>
-							<th>收货人姓名</th>
-							<th>详细地址</th>
-							<th>联系电话</th>
-							<th colspan="3">操作</th>
-						</tr>
-						</thead>
-						<tbody id="address-list">
-						<tr>
-							<td>家</td>
-							<td>八戒1</td>
-							<td>北京市房山区高老庄3排6号</td>
-							<td>1380***1234</td>
-							<td><a class="btn btn-xs btn-info"><span class="fa fa-edit"></span> 修改</a></td>
-							<td><a class="btn btn-xs add-del btn-info"><span class="fa fa-trash-o"></span> 删除</a></td>
-							<td><a class="btn btn-xs add-def btn-default">设为默认</a></td>
-						</tr>
-						<tr>
-							<td>家</td>
-							<td>八戒2</td>
-							<td>北京市房山区高老庄3排6号</td>
-							<td>1380***1234</td>
-							<td><a class="btn btn-xs btn-info"><span class="fa fa-edit"></span> 修改</a></td>
-							<td><a class="btn btn-xs add-del btn-info"><span class="fa fa-trash-o"></span> 删除</a></td>
-							<td><a class="btn btn-xs add-def btn-default">设为默认</a></td>
-						</tr>
-						<tr>
-							<td>公司</td>
-							<td>八戒3</td>
-							<td>北京市海淀区中关村中路1号1001室</td>
-							<td>1380***1234</td>
-							<td><a class="btn btn-xs btn-info"><span class="fa fa-edit"></span> 修改</a></td>
-							<td><a class="btn btn-xs add-del btn-info"><span class="fa fa-trash-o"></span> 删除</a></td>
-							<td><a class="btn btn-xs add-def btn-default">设为默认</a></td>
-						</tr>
-						<tr>
-							<td>宿舍</td>
-							<td>八戒4</td>
-							<td>北京市海淀区永丰镇30号</td>
-							<td>1380***1234</td>
-							<td><a class="btn btn-xs btn-info"><span class="fa fa-edit"></span> 修改</a></td>
-							<td><a class="btn btn-xs add-del btn-info"><span class="fa fa-trash-o"></span> 删除</a></td>
-							<td><a class="btn btn-xs add-def btn-default">设为默认</a></td>
-						</tr>
-						</tbody>
-					</table>
-					<a href="addAddress" class="btn btn-sm btn-primary"><span class="fa fa-plus"></span>新增收货地址</a>
+					<!--发布商品表单开始-->
+					<form id="form-addnew" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-md-2 control-label"><span class="txtred">*</span>名称：</label>
+							<div class="col-md-8">
+								<input id="title" type="text" class="form-control" placeholder="请输入商品名称">
+							</div>
+						</div>
+						<div class="address_content" data-toggle="distpicker">
+							<div class="form-group">
+								<label class="col-md-2 control-label"><span class="txtred">*</span>商品类型：</label>
+								<div class="col-md-3">
+									<select name="productType" class="form-control" data-province="" id="productType">
+										<option>---- 选择商品类别 ----</option>
+										<option value="book">闲置书籍</option>
+										<option value="numerical">数码电子</option>
+										<option value="clothes">鞋服配饰</option>
+										<option value="daily">日用物品</option>
+										<option value="vehicle">出行交通</option>
+										<option value="other">其他</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label"><span class="txtred">*</span>商品价格：</label>
+							<div class="col-md-8">
+								<input id="price" type="text" class="form-control" placeholder="请输入期望成交价格">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label"><span class="txtred">*</span>商品详情：</label>
+							<div class="col-md-8">
+								<textarea id="message" class="form-control" rows="3" placeholder="输入商品的详细描述"></textarea>
+							</div>
+						</div>
+					</form>
+					<form id="form-change-avatar" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-md-2 control-label"><span class="txtred">*</span>商品图片：</label>
+							<div class="col-md-4">
+								<input name="file" type="file">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label"><a href="index">返回</a>&nbsp;&nbsp;&nbsp;</label>
+							<div class="col-sm-10">
+								<input  id="btn-addnew" type="button" class="col-md-1 btn btn-primary" value="保存" />
+								<input type="reset" class="col-md-offset-1 col-md-1 btn btn-primary" value="重置" />
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -172,7 +171,7 @@
 	</address>
 
 
-	<script src="js/address.js"></script>
+	<script src="js/release_goods.js"></script>
 	</body>
 
 </html>

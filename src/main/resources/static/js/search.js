@@ -1,11 +1,12 @@
 $(function() {
-    showAllByPage(1,15)
-    function showAllByPage(currentPage,currentRows) {
+    let searchKey = $.cookie("searchKey");
+    showAllByPage(1,15,searchKey);
+    function showAllByPage(currentPage,currentRows,searchKey) {
         $.ajax({
             type: "get",
             url: "/products/findByPage",
             dataType: "json",
-            data:{productType:'vehicle',page:currentPage,rows:currentRows},
+            data:{page:currentPage,rows:currentRows,searchKey:searchKey},
             success:function (result){
                 $("#f1Content").html("");
                 $("#f2Content").html("");
@@ -80,16 +81,16 @@ $(function() {
                         if(currentPage == 1){
                             alert("已经第一页了");
                         }else{
-                            showAllByPage(currentPage-1,15);
+                            showAllByPage(currentPage-1,15,searchKey);
                         }
                     }else if(id == "nextPage1"){
                         if(currentPage == totalPage){
                             alert("已经是最后一页了");
                         }else{
-                            showAllByPage(currentPage+1,15);
+                            showAllByPage(currentPage+1,15,searchKey);
                         }
                     }else if(id == "numberPage1"){
-                        showAllByPage($(this).text(),15);
+                        showAllByPage($(this).text(),15,searchKey);
                     }
                 })
                 var number = currentPage-1;
@@ -98,9 +99,4 @@ $(function() {
             }
         })
     }
-    $(document).on("click", "#search-button", function () {
-        var searchKey=$('#search').val();
-        $.cookie("searchKey", searchKey, {"expires": 7});
-        window.location.href = "/after_search";
-    })
 })
