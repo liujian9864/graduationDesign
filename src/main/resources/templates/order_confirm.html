@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>冻梨二货</title>
+	<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/page.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/font-awesome-4.7.0/css/font-awesome.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/bootstrap/js/cookie.js}"></script>
+</head>
+	<body>
+	<div class="nav_head">
+		<a class="btn btn-link" id="login" href="login" >登陆</a>
+		<a class="avatar" href="user_center"><img src=""  id="avatar" class="avatar img-circle"></a>
+		<a class="btn btn-link"  id="reg" href="register" >注册</a>
+		<a class="btn btn-link"  id="userName" href="user_center" style="display: none"></a>
+		<a class="btn btn-link"  id="exit" style="display: none">退出登录</a>
+		<div class="nav dropdown nav1">
+			<span style="width: 10px">|</span>
+			<a class="btn btn-link"  href="user_center" >用户中心</a>
+		</div>
+		<div class="nav nav1">
+			<a class="btn btn-link"  href="index" >首页</a>
+		</div>
+	</div>
+	<div class="title">
+		<span class="title-logo">冻梨二货</span>
+		<div class="second_title">
+			<div class="find">
+				<input type="text" class="form-control" id="search" >
+				<a type="button" class="btn btn-warning" id="search-button"  >
+					<span class="glyphicon glyphicon-search"></span>
+				</a>
+				<button type="button" class="btn btn-warning"><a href="release_goods">发布闲置</a></button>
+			</div>
+		</div>
+	</div>
+	<!-- 返回最上开始 -->
+	<div class="back_to_top">
+		<a href="#"><img src="imgs/index-backtop.png"></a>
+	</div>
+	<!-- 返回最上结束 -->
+	<!--主体-->
+	<div class="container">
+		<div style="height: 20px"></div>
+		<div class="col-md-offset-1 col-md-10">
+			<div class="col-md-4">
+				<div class="col-md-12 order-bar-active">
+					1.确认订单信息
+					<span class="pull-right"><span class="fa fa-chevron-right"></span></span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-12 order-bar-undo">
+					2.在线支付
+					<span class="pull-right"><span class="fa fa-chevron-right"></span></span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-12 order-bar-undo">
+					3.付款成功
+				</div>
+			</div>
+			<div class="col-md-12" style="height: 10px"></div>
+			<div class="col-md-12">
+
+				<form id="form-order-confirm" role="form">
+					<div class="form-group">
+						<label for="name">
+							<p>选择收货地址：</p>
+						</label>
+						<select name="aid" id="address-list" class="form-control">
+							<option>请选择收货地址</option>
+						</select>
+					</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<p class="panel-title">订单商品信息：</p>
+						</div>
+						<div class="panel-body">
+							<table class="cart-table" width="100%">
+								<thead>
+								<tr>
+									<th width="15%"></th>
+									<th width="35%">商品</th>
+									<th width="15%">单价</th>
+									<th width="15%">数量</th>
+									<th width="20%">金额</th>
+								</tr>
+								</thead>
+								<tbody id="cart-list" class="cart-body">
+
+								</tbody>
+							</table>
+							<div class="total-bar">
+								&nbsp;
+								<span class="pull-right">已选商品
+								<span id="selectCount">1</span>件 总价¥
+									<span id="selectTotal">5298</span>元
+									</span>
+							</div>
+						</div>
+					</div>
+					<div class="pay-bar">
+						<span class="pull-right"><input id="btn-create" type="button" value="在线支付" class="btn btn-primary btn-lg link-pay"/></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--页脚开始-->
+	<footer>
+		<div class="text-center rights container">
+			<div class="col-md-offset-2 col-md-2">
+				<span class="fa fa-thumbs-o-up"></span>
+				<p>品质保障</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-address-card-o"></span>
+				<p>私人订制</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-graduation-cap"></span>
+				<p>学生特供</p>
+			</div>
+			<div class="col-md-2">
+				<span class="fa fa-bitcoin"></span>
+				<p>专属特权</p>
+			</div>
+		</div>
+	</footer>
+	<div class="foot">
+		<div style="height: 183px">
+			<img src="imgs/foot.png">
+		</div>
+		<span class="foot-p">来冻梨二货，你的闲置能换钱！</span><br>
+		<span class="foot-s">全校最大最活跃的闲置物品交换平台</span>
+	</div>
+	<address>
+		Written by <a href="#">Liujian</a>.<br>
+		Visit us at:<br>
+		East China University<br>
+		tel：151×××××××49
+	</address>
+
+
+	<script src="js/order_confirm.js"></script>
+	</body>
+
+</html>

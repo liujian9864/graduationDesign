@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecut.frozenpearassistant.orm.mapper.OrdersMapper">
+    <sql id="includeColumns">
+        <trim suffixOverrides=",">
+			order_id as orderId,
+			product_id as productId,
+			user_id userId,
+			rec_name recName,
+			rec_phone as recPhone,
+			rec_provice as recProvice,
+			rec_city as recCity,
+			rec_area as recArea,
+			rec_address as recAddress,
+			price ,
+			status,
+			ordertime ,
+			paytime ,
+		</trim>
+
+    </sql>
+
+	<insert id="insert" parameterType="com.ecut.frozenpearassistant.param.OrdersParam">
+		insert into orders(
+			order_id ,
+			product_id ,
+			user_id ,
+			rec_name,
+			rec_phone ,
+			rec_provice,
+			rec_city,
+			rec_area,
+			rec_address,
+			price ,
+			status,
+			ordertime ,
+			paytime
+		) values (
+			#{orderId},
+			#{productId},
+			#{userId},
+			#{recName},
+			#{recPhone},
+			#{recProvice},
+			#{recCity},
+			#{recArea},
+			#{recAddress},
+			#{price},
+			#{status},
+			#{ordertime},
+			#{paytime}
+		)
+	</insert>
+
+	<select id="queryAll" parameterType="com.ecut.frozenpearassistant.param.OrdersParam"
+			resultType="com.ecut.frozenpearassistant.orm.entity.OrdersEntity">
+		select
+		<include refid="includeColumns"></include>
+		from orders
+		where
+		user_id=#{searchKey}
+	</select>
+	<select id="queryById" parameterType="String"
+			resultType="com.ecut.frozenpearassistant.orm.entity.OrdersEntity">
+		select
+		<include refid="includeColumns"></include>
+		from orders
+		where
+		order_id=#{orderId}
+	</select>
+	<update id="updateStatus" parameterType="com.ecut.frozenpearassistant.param.ProductParam">
+		update
+		orders
+		set
+		status=#{status},
+		paytime=#{paytime}
+		where
+		order_id=#{orderId}
+	</update>
+
+
+
+
+</mapper>

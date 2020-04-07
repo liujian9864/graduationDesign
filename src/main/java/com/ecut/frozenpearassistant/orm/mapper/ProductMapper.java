@@ -31,42 +31,17 @@ public interface ProductMapper {
 	 */
 
 	Integer updateImage(ProductParam productParam);
-	
-	/**
-	 * 根据收货地址id删除数据
-	 * @param addressId 收货地址id
-	 * @return 受影响的行数
-	 */
-	Integer deleteByAddressId(String addressId);
-	
-	/**
-	 * 将指定的收货地址设置为默认
-	 * @param addressId 即将设置为默认的收货地址的id
-	 * @return 受影响的行数
-	 */
-	Integer updateDefault(String addressId);
+
+
 
 	/**
-	 * 将某用户的所有收货地址全部设置为非默认
-	 * @param userId 用户的id
+	 * 设置商品住状态
+	 * @param productParam 商品的id
 	 * @return 受影响的行数
 	 */
-	Integer updateNonDefault(String userId);
+	Integer updateStatusById(ProductParam productParam);
 
-	/**
-	 * 统计某用户的收货地址数据的数量
-	 * @param userId 用户的id
-	 * @return 该用户的收货地址数据的数量
-	 */
-	Integer countByUid(String userId);
-	
-	/**
-	 * 查询某用户的收货地址列表
-	 * @param userId 用户的id
-	 * @return 该用户的收货地址列表
-	 */
-	List<AddressEntity> findByUid(String userId);
-	
+
 	/**
 	 * 根据商品id，查询商品详情
 	 * @param productId 商品id

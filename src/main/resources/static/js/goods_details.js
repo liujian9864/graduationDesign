@@ -8,6 +8,7 @@ $(function() {
             url: "/products/findByProductId",
             dataType: "json",
             success:function (result) {
+                $("#productId").val(result.data.productId);
                 $("#title").html(result.data.title);
                 $("#img_product").attr("src",result.data.image);
                 $("#phone").attr("data-content",result.data.phone);
@@ -142,5 +143,9 @@ $(function() {
         $.cookie("avatar",null);
         $.cookie("userName",null);
         window.location.href = "/login";
+    })
+    $(document).on("click", "#buy", function () {
+        var productId=$("#productId").val();
+        window.location.href = "/order_confirm?productId="+productId;
     })
 })

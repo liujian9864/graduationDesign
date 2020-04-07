@@ -45,6 +45,14 @@
 		where
 		product_id=#{productId}
 	</update>
+	<update id="updateStatusById" parameterType="com.ecut.frozenpearassistant.param.ProductParam">
+		update
+		products
+		set
+		status=#{status}
+		where
+		product_id=#{productId}
+	</update>
 
 	<select id="findByProductId" parameterType="String"
 			resultType="com.ecut.frozenpearassistant.orm.entity.ProductEntity">
@@ -70,6 +78,7 @@
 		<if test='productType!=null and productType!=""'>
 			and product_type = #{productType}
 		</if>
+		and status='1'
 		limit ${(currentPage-1)*pageSize},${pageSize}
 	</select>
 
@@ -89,6 +98,7 @@
 		<if test='productType!=null and productType!=""'>
 			and product_type = #{productType}
 		</if>
+		and status=1
 	</select>
 
 

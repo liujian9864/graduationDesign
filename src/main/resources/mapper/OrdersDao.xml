@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.OrdersDao">
+
+    <resultMap type=".entity.Orders" id="OrdersMap">
+        <result property="orderId" column="order_id" jdbcType="VARCHAR"/>
+        <result property="productId" column="product_id" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+        <result property="recName" column="rec_name" jdbcType="VARCHAR"/>
+        <result property="recPhone" column="rec_phone" jdbcType="VARCHAR"/>
+        <result property="recProvice" column="rec_provice" jdbcType="VARCHAR"/>
+        <result property="recCity" column="rec_city" jdbcType="VARCHAR"/>
+        <result property="recArea" column="rec_area" jdbcType="VARCHAR"/>
+        <result property="recAddress" column="rec_address" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="ordertime" column="ordertime" jdbcType="VARCHAR"/>
+        <result property="paytime" column="paytime" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="OrdersMap">
+        select
+          order_id, product_id, user_id, rec_name, rec_phone, rec_provice, rec_city, rec_area, rec_address, price, status, ordertime, paytime
+        from frozenpearassistant.orders
+        where order_id = #{orderId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="OrdersMap">
+        select
+          order_id, product_id, user_id, rec_name, rec_phone, rec_provice, rec_city, rec_area, rec_address, price, status, ordertime, paytime
+        from frozenpearassistant.orders
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="OrdersMap">
+        select
+          order_id, product_id, user_id, rec_name, rec_phone, rec_provice, rec_city, rec_area, rec_address, price, status, ordertime, paytime
+        from frozenpearassistant.orders
+        <where>
+            <if test="orderId != null and orderId != ''">
+                and order_id = #{orderId}
+            </if>
+            <if test="productId != null and productId != ''">
+                and product_id = #{productId}
+            </if>
+            <if test="userId != null and userId != ''">
+                and user_id = #{userId}
+            </if>
+            <if test="recName != null and recName != ''">
+                and rec_name = #{recName}
+            </if>
+            <if test="recPhone != null and recPhone != ''">
+                and rec_phone = #{recPhone}
+            </if>
+            <if test="recProvice != null and recProvice != ''">
+                and rec_provice = #{recProvice}
+            </if>
+            <if test="recCity != null and recCity != ''">
+                and rec_city = #{recCity}
+            </if>
+            <if test="recArea != null and recArea != ''">
+                and rec_area = #{recArea}
+            </if>
+            <if test="recAddress != null and recAddress != ''">
+                and rec_address = #{recAddress}
+            </if>
+            <if test="price != null and price != ''">
+                and price = #{price}
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+            <if test="ordertime != null and ordertime != ''">
+                and ordertime = #{ordertime}
+            </if>
+            <if test="paytime != null and paytime != ''">
+                and paytime = #{paytime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="orderId" useGeneratedKeys="true">
+        insert into frozenpearassistant.orders(product_id, user_id, rec_name, rec_phone, rec_provice, rec_city, rec_area, rec_address, price, status, ordertime, paytime)
+        values (#{productId}, #{userId}, #{recName}, #{recPhone}, #{recProvice}, #{recCity}, #{recArea}, #{recAddress}, #{price}, #{status}, #{ordertime}, #{paytime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update frozenpearassistant.orders
+        <set>
+            <if test="productId != null and productId != ''">
+                product_id = #{productId},
+            </if>
+            <if test="userId != null and userId != ''">
+                user_id = #{userId},
+            </if>
+            <if test="recName != null and recName != ''">
+                rec_name = #{recName},
+            </if>
+            <if test="recPhone != null and recPhone != ''">
+                rec_phone = #{recPhone},
+            </if>
+            <if test="recProvice != null and recProvice != ''">
+                rec_provice = #{recProvice},
+            </if>
+            <if test="recCity != null and recCity != ''">
+                rec_city = #{recCity},
+            </if>
+            <if test="recArea != null and recArea != ''">
+                rec_area = #{recArea},
+            </if>
+            <if test="recAddress != null and recAddress != ''">
+                rec_address = #{recAddress},
+            </if>
+            <if test="price != null and price != ''">
+                price = #{price},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+            <if test="ordertime != null and ordertime != ''">
+                ordertime = #{ordertime},
+            </if>
+            <if test="paytime != null and paytime != ''">
+                paytime = #{paytime},
+            </if>
+        </set>
+        where order_id = #{orderId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from frozenpearassistant.orders where order_id = #{orderId}
+    </delete>
+
+</mapper>

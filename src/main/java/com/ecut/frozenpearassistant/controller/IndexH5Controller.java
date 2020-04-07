@@ -82,4 +82,19 @@ public class IndexH5Controller {
         session.setAttribute("productId",productId);
         return "goods_details";
     }
+    @GetMapping("order_confirm")
+    public String orderConfirm(@RequestParam(value="productId") String productId,HttpSession session){
+        session.setAttribute("productId",productId);
+        return "order_confirm";
+    }
+    @GetMapping("payment")
+    public String payment(){
+//        session.setAttribute("productId",productId);
+        return "payment";
+    }
+    @GetMapping("pay_success")
+    public String paySuccess(){
+//        session.setAttribute("productId",productId);
+        return "pay_success";
+    }
 }

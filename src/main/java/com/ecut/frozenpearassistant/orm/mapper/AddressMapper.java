@@ -11,6 +11,7 @@ import java.util.List;
  * 处理收货地址数据的持久层接口
  */
 @Mapper
+@Repository
 public interface AddressMapper {
 	
 	/**
