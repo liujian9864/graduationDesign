@@ -7,7 +7,7 @@ spring:
       driver_class_name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://127.0.0.1:3306/frozenpearassistant?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
       username: root
-      password: root
+      password: 123456
       max-active: 20
       initial-size: 1
       min-idle: 3
