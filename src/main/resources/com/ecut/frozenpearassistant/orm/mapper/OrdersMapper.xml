@@ -58,7 +58,7 @@
 		<include refid="includeColumns"></include>
 		from orders
 		where
-		user_id=#{searchKey}
+		user_id=#{userId}
 	</select>
 	<select id="queryById" parameterType="String"
 			resultType="com.ecut.frozenpearassistant.orm.entity.OrdersEntity">

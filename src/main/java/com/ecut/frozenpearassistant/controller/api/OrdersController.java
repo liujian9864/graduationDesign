@@ -33,16 +33,14 @@ public class OrdersController {
     /**
      * 查询数据
      *
-     * @param id 主键
      * @return 单条数据
      */
     @GetMapping("selectAll")
-    public JsonResult<List<OrdersEntity>> selectAll(String id, HttpSession session) {
+    public JsonResult<List<OrdersEntity>> selectAll( HttpSession session) {
         // 从session中获取uid
         String userId = (String)session.getAttribute("userId");
         OrdersParam ordersParam=new OrdersParam();
         ordersParam.setUserId(userId);
-        ordersParam.setOrderId(id);
         List<OrdersEntity> data=ordersService.queryAll(ordersParam);
         return new JsonResult<>(SUCCESS,data);
     }

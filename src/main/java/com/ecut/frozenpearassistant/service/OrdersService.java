@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -42,7 +43,17 @@ public class OrdersService {
      * @return 实例对象
      */
     public List<OrdersEntity> queryAll(OrdersParam ordersParam) {
-        return this.ordersMapper.queryAll(ordersParam);
+        List<OrdersEntity> ordersEntities=this.ordersMapper.queryAll(ordersParam);
+        List<OrdersEntity> ordersEntityList=new ArrayList<>();
+        if(ordersEntities !=null){
+            for(OrdersEntity ordersEntity:ordersEntities){
+                ProductEntity productEntity=productMapper.findByProductId(ordersEntity.getProductId());
+                ordersEntity.setTitle(productEntity.getTitle());
+                ordersEntity.setImage(productEntity.getImage());
+                ordersEntityList.add(ordersEntity);
+            }
+        }
+        return ordersEntityList;
     }
 
 

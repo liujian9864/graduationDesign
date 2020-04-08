@@ -37,6 +37,10 @@ public class IndexH5Controller {
     public String orders(){
         return "orders";
     }
+    @GetMapping("releases")
+    public String releases(){
+        return "releases";
+    }
     @GetMapping("password")
     public String password(){
         return "password";
