@@ -62,6 +62,14 @@
 		where  product_id=#{productId}
 	</select>
 
+	<select id="findByUserId" parameterType="String"
+			resultType="com.ecut.frozenpearassistant.orm.entity.ProductEntity">
+		select
+		<include refid="includeColumns"></include>
+		from products
+		where  user_id=#{userId}
+	</select>
+
 	<select id="queryByPage" parameterType="com.ecut.frozenpearassistant.param.Page"
 			resultType="com.ecut.frozenpearassistant.orm.entity.ProductEntity">
 		select

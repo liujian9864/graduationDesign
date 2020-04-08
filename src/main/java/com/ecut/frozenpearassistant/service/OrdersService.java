@@ -2,18 +2,17 @@ package com.ecut.frozenpearassistant.service;
 
 import com.ecut.frozenpearassistant.orm.entity.AddressEntity;
 import com.ecut.frozenpearassistant.orm.entity.OrdersEntity;
+import com.ecut.frozenpearassistant.orm.entity.ProductEntity;
 import com.ecut.frozenpearassistant.orm.mapper.AddressMapper;
 import com.ecut.frozenpearassistant.orm.mapper.OrdersMapper;
 import com.ecut.frozenpearassistant.orm.mapper.ProductMapper;
 import com.ecut.frozenpearassistant.param.OrdersParam;
 import com.ecut.frozenpearassistant.param.ProductParam;
-import com.ecut.frozenpearassistant.service.ex.AddressNotFoundException;
-import com.ecut.frozenpearassistant.service.ex.InsertException;
-import com.ecut.frozenpearassistant.service.ex.OrderNotFoundException;
-import com.ecut.frozenpearassistant.service.ex.UpdateException;
+import com.ecut.frozenpearassistant.service.ex.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
@@ -53,6 +52,7 @@ public class OrdersService {
      * @param orders 实例对象
      * @return 实例对象
      */
+    @Transactional
     public OrdersEntity insert(OrdersParam orders) {
         AddressEntity addressEntity=addressMapper.findByAid(orders.getAddressId());
         if (addressEntity==null){
@@ -68,24 +68,50 @@ public class OrdersService {
         orders.setRecCity(addressEntity.getCityName());
         orders.setRecArea(addressEntity.getAreaName());
         orders.setRecAddress(addressEntity.getAddress());
-        orders.setStatus("0");
+        orders.setStatus("1");
         //我要获取当前的日期
         Date date = new Date();
         //设置要获取到什么样的时间
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //获取String类型的时间
-        String createdate = sdf.format(date);
-        orders.setOrdertime(createdate);
+        String createDate = sdf.format(date);
+        orders.setOrdertime(createDate);
         BeanUtils.copyProperties(orders,ordersEntity);
 
         Integer rows=ordersMapper.insert(orders);
+        ProductParam productParam = new ProductParam();
+        productParam.setProductId(orders.getProductId());
+        //商品设置为暂时下架
+        productParam.setStatus("0");
+        productMapper.updateStatusById(productParam);
         if (rows!=1){
             throw  new InsertException("订单生成失败");
         }
         return ordersEntity;
     }
+    @Transactional
+    public OrdersEntity exit(OrdersParam ordersParam) {
+        OrdersEntity ordersEntity=ordersMapper.queryById(ordersParam.getOrderId());
+        if (ordersEntity==null){
+            throw new OrderNotFoundException("订单查询失败，订单不存在");
+        }
+        //订单设置为注销
+        ordersParam.setStatus("0");
 
-    public OrdersEntity updateStatus(OrdersParam orders) {
+        Integer rows=ordersMapper.updateStatus(ordersParam);
+        ProductParam productParam = new ProductParam();
+        productParam.setProductId(ordersParam.getProductId());
+        //商品设置为上架
+        productParam.setStatus("1");
+        productMapper.updateStatusById(productParam);
+        if (rows!=1){
+            throw  new InsertException("订单取消失败");
+        }
+        return ordersEntity;
+    }
+
+    @Transactional
+    public OrdersEntity payment(OrdersParam orders) {
         OrdersEntity ordersEntity=ordersMapper.queryById(orders.getOrderId());
         if (ordersEntity==null){
             throw new OrderNotFoundException("订单查询失败，订单不存在");
@@ -95,15 +121,15 @@ public class OrdersService {
         //商品设置为代发货
         productParam.setStatus("2");
         productMapper.updateStatusById(productParam);
-        //订单设置为待收货
-        orders.setStatus("1");
+        //订单设置为已付款
+        orders.setStatus("2");
         //我要获取当前的日期
         Date date = new Date();
         //设置要获取到什么样的时间
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //获取String类型的时间
-        String createdate = sdf.format(date);
-        orders.setPaytime(createdate);
+        String payDate = sdf.format(date);
+        orders.setPaytime(payDate);
         ordersEntity.setStatus(orders.getStatus());
         ordersEntity.setPaytime(orders.getPaytime());
         Integer rows=ordersMapper.updateStatus(orders);
@@ -114,23 +140,13 @@ public class OrdersService {
     }
 
     /**
-     * 修改数据
+     * 修改数据状态
      *
-     * @param orders 实例对象
+     * @param ordersParam 实例对象
      * @return 实例对象
      */
-//    public Orders update(Orders orders) {
-//        this.ordersDao.update(orders);
-//        return this.queryById(orders.getOrderId());
-//    }
-
-    /**
-     * 通过主键删除数据
-     *
-     * @param orderId 主键
-     * @return 是否成功
-     */
-    public boolean deleteById(String orderId) {
-        return this.ordersMapper.deleteById(orderId) > 0;
+    public void updateStatus(OrdersParam ordersParam) {
+        ordersMapper.updateStatus(ordersParam);
     }
+
 }

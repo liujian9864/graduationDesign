@@ -7,6 +7,7 @@ import com.ecut.frozenpearassistant.orm.entity.ProductEntity;
 import com.ecut.frozenpearassistant.param.MessageParam;
 import com.ecut.frozenpearassistant.param.ProductParam;
 import com.ecut.frozenpearassistant.service.ProductService;
+import com.ecut.frozenpearassistant.service.ex.ParamNotExistException;
 import com.ecut.frozenpearassistant.service.ex.UserNotFoundException;
 import com.ecut.frozenpearassistant.util.JsonResult;
 import com.fasterxml.jackson.annotation.JsonAlias;
@@ -28,13 +29,13 @@ public class ProductController extends BaseController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("findByPage")
+    @GetMapping("/findByPage")
     public JsonResult<PageProduct> List(ProductParam productParam){
         PageProduct data=productService.queryByPage(productParam);
         return new JsonResult<>(SUCCESS,data);
     }
 
-    @GetMapping("showMessage")
+    @GetMapping("/showMessage")
     public JsonResult<PageMessage> showMessage(MessageParam messageParam, HttpSession session){
         String productId=(String)session.getAttribute("productId");
         messageParam.setProductId(productId);
@@ -42,10 +43,17 @@ public class ProductController extends BaseController {
         return new JsonResult<>(SUCCESS,data);
     }
 
-    @GetMapping("findByProductId")
+    @GetMapping("/findByProductId")
     public JsonResult<ProductEntity> findByProductId(HttpSession session){
         String productId = (String)session.getAttribute("productId");
         ProductEntity data=productService.findByProductId(productId);
+        return new JsonResult<>(SUCCESS,data);
+    }
+
+    @GetMapping("/findByUserId")
+    public JsonResult<List<ProductEntity>> findByUserId(HttpSession session){
+        String userId = (String)session.getAttribute("userId");
+        List<ProductEntity> data=productService.findByUserId(userId);
         return new JsonResult<>(SUCCESS,data);
     }
 
@@ -71,6 +79,15 @@ public class ProductController extends BaseController {
         messageParam.setProductId(productId);
         messageParam.setUserId(userId);
         productService.addMessage(messageParam);
+        return new JsonResult<>(SUCCESS);
+    }
+
+    @PostMapping("/UpdateStatus")
+    public JsonResult<Void> updateStatus(@RequestBody ProductParam productParam){
+        if (productParam==null){
+            throw new ParamNotExistException("输入的参数为空!");
+        }
+        productService.updateStatus(productParam);
         return new JsonResult<>(SUCCESS);
     }
 

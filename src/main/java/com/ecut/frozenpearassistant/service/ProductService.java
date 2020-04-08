@@ -68,6 +68,13 @@ public class ProductService{
         }
         return productEntity;
     }
+    public List<ProductEntity> findByUserId(String userId){
+        List<ProductEntity> productEntities=productMapper.findByUserId(userId);
+        if(productEntities == null ){
+            throw new UpdateException("根据用户查询发布商品错误");
+        }
+        return productEntities;
+    }
 
     public void addNew(ProductParam productParam){
 
@@ -109,6 +116,15 @@ public class ProductService{
         productParam.setProductId(productId);
         productParam.setImage(image);
         Integer rows=productMapper.updateImage(productParam);
+        if (rows != 1) {
+            // 是：抛出UpdateException
+            throw new UpdateException(
+                    "更新数据时出现未知错误，请联系系统管理员");
+        }
+    }
+
+    public void updateStatus(ProductParam productParam){
+        Integer rows=productMapper.updateStatusById(productParam);
         if (rows != 1) {
             // 是：抛出UpdateException
             throw new UpdateException(

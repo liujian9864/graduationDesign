@@ -4,7 +4,6 @@ import com.ecut.frozenpearassistant.orm.entity.OrdersEntity;
 import com.ecut.frozenpearassistant.param.OrdersParam;
 import com.ecut.frozenpearassistant.service.OrdersService;
 import com.ecut.frozenpearassistant.util.JsonResult;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.*;
@@ -32,13 +31,13 @@ public class OrdersController {
     private OrdersService ordersService;
 
     /**
-     * 通过主键查询单条数据
+     * 查询数据
      *
      * @param id 主键
      * @return 单条数据
      */
     @GetMapping("selectAll")
-    public JsonResult<List<OrdersEntity>> selectOne(String id, HttpSession session) {
+    public JsonResult<List<OrdersEntity>> selectAll(String id, HttpSession session) {
         // 从session中获取uid
         String userId = (String)session.getAttribute("userId");
         OrdersParam ordersParam=new OrdersParam();
@@ -48,7 +47,7 @@ public class OrdersController {
         return new JsonResult<>(SUCCESS,data);
     }
     /**
-     * 通过主键查询单条数据
+     * 生成订单
      *
      * @return 单条数据
      */
@@ -68,7 +67,18 @@ public class OrdersController {
      */
     @PostMapping("update")
     public JsonResult<OrdersEntity> update(@RequestBody OrdersParam ordersParam, HttpSession session) {
-        OrdersEntity data=ordersService.updateStatus(ordersParam);
+        OrdersEntity data=ordersService.payment(ordersParam);
+        return new JsonResult<>(SUCCESS,data);
+    }
+
+    /**
+     * 通过主键查询单条数据
+     *
+     * @return 单条数据
+     */
+    @PostMapping("exitOrder")
+    public JsonResult<OrdersEntity> exit(@RequestBody OrdersParam ordersParam, HttpSession session) {
+        OrdersEntity data=ordersService.exit(ordersParam);
         return new JsonResult<>(SUCCESS,data);
     }
 

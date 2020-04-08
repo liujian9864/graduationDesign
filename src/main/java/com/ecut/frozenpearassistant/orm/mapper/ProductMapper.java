@@ -50,6 +50,13 @@ public interface ProductMapper {
 	ProductEntity findByProductId(String productId);
 
 	/**
+	 * 根据用户id，查询商品详情
+	 * @param userId 商品id
+	 * @return 商品信息
+	 */
+	List<ProductEntity> findByUserId(String userId);
+
+	/**
 	 * 分页查询商品详情
 	 * @param page
 	 * @return 分页数据
