@@ -106,7 +106,7 @@ public class UsersController extends BaseController{
         }
 
         // 保存头像文件的文件夹的名称
-        String dir = FILEPATH;
+        String dir = FILEPATH+"avatar";
         // 确定保存头像文件的文件夹的路径
 //        String pathname = session.getServletContext().getRealPath(dir);
         String pathname = dir;

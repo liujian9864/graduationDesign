@@ -20,7 +20,7 @@ public abstract class BaseController {
 	/**
 	 * 图片上传路径
 	 */
-	public static final String FILEPATH = "E:\\workspace\\myevaluate\\src\\main\\resources\\static\\imgs\\avatar";
+	public static final String FILEPATH = "E:\\workspace\\myevaluate\\src\\main\\resources\\static\\imgs\\";
 
 	@ExceptionHandler({ServiceException.class, FileUploadException.class})
 	public JsonResult<Void> handleException(Throwable ex) {
