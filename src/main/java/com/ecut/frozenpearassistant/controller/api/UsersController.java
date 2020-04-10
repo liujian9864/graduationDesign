@@ -106,11 +106,10 @@ public class UsersController extends BaseController{
         }
 
         // 保存头像文件的文件夹的名称
-        String dir = "E:\\workspace\\myevaluate\\src\\main\\resources\\static\\imgs\\avatar";
+        String dir = FILEPATH+"avatar";
         // 确定保存头像文件的文件夹的路径
 //        String pathname = session.getServletContext().getRealPath(dir);
         String pathname = dir;
-        System.out.println(pathname);
         // 保存头像文件的文件夹
         File parent = new File(pathname);
         // 确保文件夹是存在的

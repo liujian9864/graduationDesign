@@ -17,7 +17,11 @@ public abstract class BaseController {
 	 * 操作成功时的状态码
 	 */
 	public static final int SUCCESS = 2000;
-	
+	/**
+	 * 图片上传路径
+	 */
+	public static final String FILEPATH = "E:\\workspace\\myevaluate\\src\\main\\resources\\static\\imgs\\";
+
 	@ExceptionHandler({ServiceException.class, FileUploadException.class})
 	public JsonResult<Void> handleException(Throwable ex) {
 		// 创建响应结果对象
