@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MyPicConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/imgs/**/**").addResourceLocations("file:E:/workspace/myevaluate/src/main/resources/static/imgs/");
+        registry.addResourceHandler("/imgs/**/**").addResourceLocations("file:C:/Users/liuji/Desktop/毕设文件/myevaluate/src/main/resources/static/imgs/");
     }
 }
 
