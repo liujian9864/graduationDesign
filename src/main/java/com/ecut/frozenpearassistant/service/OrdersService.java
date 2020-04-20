@@ -93,7 +93,7 @@ public class OrdersService {
         ProductParam productParam = new ProductParam();
         productParam.setProductId(orders.getProductId());
         //商品设置为暂时下架
-        productParam.setStatus("0");
+        productParam.setStatus("1");
         productMapper.updateStatusById(productParam);
         if (rows!=1){
             throw  new InsertException("订单生成失败");
