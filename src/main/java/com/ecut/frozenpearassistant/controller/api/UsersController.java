@@ -138,7 +138,7 @@ public class UsersController extends BaseController{
                     "文件可能已经被移动，无法访问文件的数据");
         } catch (IOException e) {
             throw new FileIOException(
-                    "读写数据时出现错误");
+                    "读写数据时出现错误",e);
         }
 
         // 将头像更新到数据库中
