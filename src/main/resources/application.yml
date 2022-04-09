@@ -27,12 +27,12 @@ spring:
     suffix: .html  #后缀名
 #  mvc:
 #    static-path-pattern: /static/**
-#  resources:
-#      static-locations: classpath:/static/
+  resources:
+      static-locations: classpath:/static/
 server:
   port: 9864
 #  servlet:
-#    context-path: /teachingevalutionsystem
+#    context-path: /frozenpearassistant
 
 mybatis:
   mapperLocations: classpath:com/**/mapper/*.xml
